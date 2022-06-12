@@ -18,7 +18,12 @@ namespace tp1_grupo6.Logica
         public List <Post> MisPosts { get; set; }
         public List<Comentario> MisComentarios { get; set; }
         public List<Reaccion> MisReacciones { get; set; }
-        
+
+
+
+
+
+        public Usuario() { }
         //Constructor logico para registrar un usuario
         public Usuario(int DNI, string Nombre, string Apellido, string Mail, string Password)
         {            

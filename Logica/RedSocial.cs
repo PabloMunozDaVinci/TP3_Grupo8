@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using EasyEncryption;
 using System.Data.SqlClient;
+using test.Logica;
+using Microsoft.EntityFrameworkCore;
 
 namespace tp1_grupo6.Logica
 {
@@ -16,7 +18,8 @@ namespace tp1_grupo6.Logica
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
         private DB_Management DB;
-
+        private Context context;
+        private DbSet<Usuario> misUsuarios; 
         public RedSocial()
         {
             usuarios = new List<Usuario>();
@@ -30,8 +33,26 @@ namespace tp1_grupo6.Logica
 
         private void inicializarAtributos()
         {
-            usuarios = DB.inicializarUsuarios();
+            try
+            {
+                // creo el contexto 
+                context = new Context();
+
+                // cargo a la memoria los usuarios
+                context.usuarios.Load();
+                misUsuarios = context.usuarios;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
+
+
+
+
+
+
 
         private string Hashear(string contraseñaSinHashear)
         {
