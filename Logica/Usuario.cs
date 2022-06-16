@@ -6,8 +6,7 @@ namespace tp1_grupo6.Logica
 {
      public class Usuario
     {
-        public int ID { get;}
-        public int DNI { get; set; }
+        public int ID { get; set;}
         public string Nombre{ get; set; }
         public string Apellido  { get; set; }
         public string Mail { get; set; }
@@ -25,9 +24,8 @@ namespace tp1_grupo6.Logica
 
         public Usuario() { }
         //Constructor logico para registrar un usuario
-        public Usuario(int DNI, string Nombre, string Apellido, string Mail, string Password)
+        public Usuario(string Nombre, string Apellido, string Mail, string Password)
         {            
-            this.DNI = DNI;
             this.Nombre = Nombre;
             this.Apellido = Apellido;
             this.Mail = Mail;
@@ -40,10 +38,9 @@ namespace tp1_grupo6.Logica
             MisReacciones = new List<Reaccion>();
         }
         //Constructor para traer datos de la DB con todos los datos
-        public Usuario(int ID,int DNI, string Nombre, string Apellido, string Mail, string Password, bool Bloqueado, bool EsAdmin)
+        public Usuario(int ID, string Nombre, string Apellido, string Mail, string Password, bool Bloqueado, bool EsAdmin)
         {
             this.ID = ID;
-            this.DNI = DNI;
             this.Nombre = Nombre;
             this.Apellido = Apellido;
             this.Mail = Mail;

@@ -10,11 +10,11 @@ namespace tp1_grupo6.Logica
 	{
 
 		public int ID { get; set; }
-		public Usuario usuario { get; set; }
+		//public Usuario usuario { get; set; } tenemos UsuarioID
 		public int usuarioID { get; set; }
 
 		public int comentarioID   { get; set; }
-	public string Contenido { get; set; }
+		public string Contenido { get; set; }
 		public List<Comentario> Comentarios { get; set; }
 		public List<Reaccion> Reacciones { get; set; }
 		public List<Tag> Tags { get; set; }
