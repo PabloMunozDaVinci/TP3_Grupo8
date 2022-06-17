@@ -48,9 +48,13 @@ namespace tp1_grupo6.Logica
                 .ToTable("Tag")
                 .HasKey(t => t.ID);
             // TABLA UsuarioAmigo
+            
+            
+            //VERIFICAR LA KEY DE ESTA RELACION
             modelBuilder.Entity<UsuarioAmigo>()
                 .ToTable("UsuarioAmigo")
-                .HasKey(ua =>ua.);
+                .HasKey(ua =>ua.ID_Usuario);
+            
 
             //==================== RELACIONES ============================
 

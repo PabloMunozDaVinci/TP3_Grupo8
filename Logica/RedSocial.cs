@@ -10,9 +10,12 @@ namespace tp1_grupo6.Logica
 {
     public class RedSocial
     {
-        private List<Usuario> usuarios;
-        private List<Post> posts;
-        private List<Tag> tags;
+        /* NO HACE FALTA EN ENTITY
+       private List<Usuario> usuarios;
+       private List<Post> posts;
+       private List<Tag> tags;
+           */
+
         public Usuario usuarioActual { get; set; }
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
@@ -20,9 +23,12 @@ namespace tp1_grupo6.Logica
         private DbSet<Usuario> misUsuarios; 
         public RedSocial()
         {
+            /* NO HACE FALTA EN ENTITY
+             * 
             usuarios = new List<Usuario>();
             posts = new List<Post>();
             tags = new List<Tag>();
+            */
             this.usuarioActual = usuarioActual;
             this.loginHistory = new Dictionary<string, int>();
             inicializarAtributos();
@@ -35,9 +41,36 @@ namespace tp1_grupo6.Logica
                 // creo el contexto 
                 context = new Context();
 
-                // cargo a la memoria los usuarios
-                context.usuarios.Load();
-                misUsuarios = context.usuarios;
+                // cargo a la memoria los usuarios toda lista y coleccion que tenga la clase de usuario
+                context.Usuarios.Include(u => u.MisPosts)
+                    .Include(u => u.MisComentarios)
+                    .Include(u => u.MisReacciones)
+                    .Include(u => u.MisAmigos)
+                    .Include(u => u.AmigosMios)
+                    .Load();
+                misUsuarios = context.Usuarios;
+
+                context.Posts.Include(p => p.Usuario)
+                    .Include(p => p.Comentarios)
+                    .Include(p => p.Reacciones)
+                    .Include(p => p.Tags)
+                    .Load();
+
+
+                context.Comentarios.Include(c => c.Usuario)
+                    .Include(c => c.Post)
+                    .Load();
+
+
+                context.Tags.Include(t =>t.TagPost)
+                    .Include(t => t.Posts)
+                    .Load();
+
+
+                context.Reacciones.Include(r => r.Usuario)
+                    .Include(r => r.Post)
+                    .Load();
+
             }
             catch (Exception ex)
             {
@@ -146,14 +179,14 @@ namespace tp1_grupo6.Logica
 
             return usuarioEncontrado;
         }
-
+       
         public bool RegistrarUsuario(int DNI, string Nombre, string Apellido, string Mail, string Password, bool EsADMIN, bool Bloqueado)
         {
             if (!ExisteUsuario(Mail))
             {
     
                     int idNuevoUsuario;
-                    idNuevoUsuario = DB.agregarUsuario(DNI, Nombre, Apellido, Mail, Password, EsADMIN, Bloqueado);
+                    idNuevoUsuario = context.agregarUsuario(DNI, Nombre, Apellido, Mail, Password, EsADMIN, Bloqueado);
                     if (idNuevoUsuario != -1)
                     {
                         //Ahora sí lo agrego en la lista
@@ -171,6 +204,7 @@ namespace tp1_grupo6.Logica
             return false;
         }
 
+    
 
         // Se autentica al Usuario.
         public bool IniciarUsuario(string Mail, string Password)
@@ -258,6 +292,8 @@ namespace tp1_grupo6.Logica
 
 
         // no se si funciona
+
+        /*
         public void AgregarAmigo(Usuario amigo)
         {
             if (usuarioActual != null)
@@ -269,13 +305,13 @@ namespace tp1_grupo6.Logica
 
         }
 
+        */
 
 
 
 
 
-
-
+        /*
 
         // no funciona
         public void QuitarAmigo(Usuario exAmigo)
@@ -292,7 +328,7 @@ namespace tp1_grupo6.Logica
 
 
 
-
+        */
 
 
 

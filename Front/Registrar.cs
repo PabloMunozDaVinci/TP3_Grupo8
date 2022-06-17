@@ -17,98 +17,98 @@ namespace tp1_grupo6.Front
         private RedSocial miRed;
         private string[] argumentos;
         static Regex validate_emailaddress = email_validation();
+        
+      public Registrar(RedSocial miRed)
+      {
+          InitializeComponent();
+          this.miRed = miRed;
+      }
 
-        public Registrar(RedSocial miRed)
-        {
-            InitializeComponent();
-            this.miRed = miRed;
-        }
+      private void Confirmar_Click(object sender, EventArgs e)
+      {
+          int DNI = 0;
+          string nombre = "";
+          string apellido = "";
+          string mail = "";
+          string password = "";
+          string passwordRepetida = "";
+          bool esADMIN = false;
+          bool bloqueado = false;
 
-        private void Confirmar_Click(object sender, EventArgs e)
-        {
-            int DNI = 0;
-            string nombre = "";
-            string apellido = "";
-            string mail = "";
-            string password = "";
-            string passwordRepetida = "";
-            bool esADMIN = false;
-            bool bloqueado = false;
+          bool todoOk = true;
 
-            bool todoOk = true;
+          try
+          {
+              DNI = Int32.Parse(textBoxDNI.Text);
+          }
+          catch
+          {
+              MessageBox.Show("El DNI es un dato numérico.");
+              todoOk = false;
+          }
 
-            try
-            {
-                DNI = Int32.Parse(textBoxDNI.Text);
-            }
-            catch
-            {
-                MessageBox.Show("El DNI es un dato numérico.");
-                todoOk = false;
-            }
-
-            nombre = textBoxNombre.Text;
-            apellido = textBoxApellido.Text;
-            mail = textBoxMail.Text;
-            password = textBoxContrasenia.Text;
-            passwordRepetida = textBoxContraseniaRepetida.Text;
-
-
-            if (DNI <= 0)
-            {
-                MessageBox.Show("Ingrese DNI");
-                todoOk = false;
-            }
+          nombre = textBoxNombre.Text;
+          apellido = textBoxApellido.Text;
+          mail = textBoxMail.Text;
+          password = textBoxContrasenia.Text;
+          passwordRepetida = textBoxContraseniaRepetida.Text;
 
 
-            if (nombre == "")
-            {
-                MessageBox.Show("Ingrese Nombre");
-                todoOk = false;
-            }
+          if (DNI <= 0)
+          {
+              MessageBox.Show("Ingrese DNI");
+              todoOk = false;
+          }
 
 
-            if (mail == "")
-            {
-                MessageBox.Show("Ingrese Mail");
-                todoOk = false;
-            }
-            else if (miRed.ExisteUsuario(mail))
-            {
-                MessageBox.Show("El Mail ingresado ya pertenece a un Usuario existente.");
-                textBoxMail.Text = "";
-                todoOk = false;
-            }
+          if (nombre == "")
+          {
+              MessageBox.Show("Ingrese Nombre");
+              todoOk = false;
+          }
 
 
-            if (validate_emailaddress.IsMatch(mail) != true)
-            {
-                MessageBox.Show("Ingrese un Mail válido.");
-                todoOk = false;
-            }
+          if (mail == "")
+          {
+              MessageBox.Show("Ingrese Mail");
+              todoOk = false;
+          }
+          else if (miRed.ExisteUsuario(mail))
+          {
+              MessageBox.Show("El Mail ingresado ya pertenece a un Usuario existente.");
+              textBoxMail.Text = "";
+              todoOk = false;
+          }
 
-  
-            if (password == "")
-            {
-                MessageBox.Show("Ingrese Contraseña");
-                todoOk = false;
-            }
-            else if (password != passwordRepetida)
-            {
-                MessageBox.Show("Las contraseñas deben coincidir");
-                textBoxContrasenia.Text = "";
-                textBoxContraseniaRepetida.Text = "";
-                todoOk = false;
-            }
 
-            if (todoOk)
-            {
-                miRed.RegistrarUsuario(DNI, nombre, apellido, mail, password, esADMIN, bloqueado);
-                MessageBox.Show("Su Usuario se registro exitosamente.");
-                Dispose();
-            }
-        }
+          if (validate_emailaddress.IsMatch(mail) != true)
+          {
+              MessageBox.Show("Ingrese un Mail válido.");
+              todoOk = false;
+          }
 
+
+          if (password == "")
+          {
+              MessageBox.Show("Ingrese Contraseña");
+              todoOk = false;
+          }
+          else if (password != passwordRepetida)
+          {
+              MessageBox.Show("Las contraseñas deben coincidir");
+              textBoxContrasenia.Text = "";
+              textBoxContraseniaRepetida.Text = "";
+              todoOk = false;
+          }
+
+          if (todoOk)
+          {
+              miRed.RegistrarUsuario(DNI, nombre, apellido, mail, password, esADMIN, bloqueado);
+              MessageBox.Show("Su Usuario se registro exitosamente.");
+              Dispose();
+          }
+      }
+        
         private void label3_Click(object sender, EventArgs e)
         {
 
