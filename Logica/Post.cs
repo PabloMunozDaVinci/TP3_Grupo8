@@ -15,9 +15,11 @@ namespace tp1_grupo6.Logica
 		public string Contenido { get; set; }
 		public List<Comentario> Comentarios { get; set; }
 		public List<Reaccion> Reacciones { get; set; }
-		public List<Tag> Tags { get; set; }
+		//public List<Tag> Tags { get; set; }
 		public List<TagPost> TagPost { get; set; }
 		public string Fecha { get; set; }
+		
+		public  ICollection<Tag> Tags { get; set; }	= new List<Tag>();
 
 		//Constructor vacio para EF
 		public Post()

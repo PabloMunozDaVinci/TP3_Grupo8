@@ -47,6 +47,10 @@ namespace tp1_grupo6.Logica
             modelBuilder.Entity<Tag>()
                 .ToTable("Tag")
                 .HasKey(t => t.ID);
+            // TABLA UsuarioAmigo
+            modelBuilder.Entity<UsuarioAmigo>()
+                .ToTable("UsuarioAmigo")
+                .HasKey(ua =>ua.);
 
             //==================== RELACIONES ============================
 
@@ -115,9 +119,9 @@ namespace tp1_grupo6.Logica
                 .HasMany(P => P.Tags)
                 .WithMany(T => T.Posts)
                 .UsingEntity<TagPost>(
-                    eup => eup.HasOne(TP => TP.Tag).WithMany(T => T.TagPost).HasForeignKey(P => P.ID_Tag),
-                    eup => eup.HasOne(TP => TP.Post).WithMany(P => P.TagPost).HasForeignKey(P => P.ID_Post),
-                    eup => eup.HasKey(k => new { k.ID_Tag, k.ID_Post})
+                    etp => etp.HasOne(TP => TP.Tag).WithMany(T => T.TagPost).HasForeignKey(P => P.ID_Tag),
+                    etp => etp.HasOne(TP => TP.Post).WithMany(P => P.TagPost).HasForeignKey(P => P.ID_Post),
+                    etp => etp.HasKey(k => new { k.ID_Tag, k.ID_Post})
                 );
 
 
