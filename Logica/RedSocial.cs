@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using EasyEncryption;
 using System.Data.SqlClient;
-using test.Logica;
 using Microsoft.EntityFrameworkCore;
 
 namespace tp1_grupo6.Logica
@@ -17,7 +16,6 @@ namespace tp1_grupo6.Logica
         public Usuario usuarioActual { get; set; }
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
-        private DB_Management DB;
         private Context context;
         private DbSet<Usuario> misUsuarios; 
         public RedSocial()
@@ -27,7 +25,6 @@ namespace tp1_grupo6.Logica
             tags = new List<Tag>();
             this.usuarioActual = usuarioActual;
             this.loginHistory = new Dictionary<string, int>();
-            DB = new DB_Management();
             inicializarAtributos();
         }
 
