@@ -17,7 +17,7 @@ namespace tp1_grupo6.Logica
 		public List<Reaccion> Reacciones { get; set; }
 		//public List<Tag> Tags { get; set; }
 		public List<TagPost> TagPost { get; set; }
-		public string Fecha { get; set; }
+		public DateTime Fecha { get; set; }
 		
 		public  ICollection<Tag> Tags { get; set; }	= new List<Tag>();
 
@@ -25,7 +25,7 @@ namespace tp1_grupo6.Logica
 		public Post()
 		{ }
 		
-		public Post(int ID,int UsuarioID,int ComentarioID, string Contenido,string Fecha){
+		public Post(int ID,int UsuarioID,int ComentarioID, string Contenido,DateTime Fecha){
 			this.ID = ID;
 			this.UsuarioID = UsuarioID;
 			this.ComentarioID = ComentarioID;

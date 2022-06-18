@@ -36,8 +36,8 @@ namespace tp1_grupo6.Logica
                 context = new Context();
 
                 // cargo a la memoria los usuarios
-                context.usuarios.Load();
-                misUsuarios = context.usuarios;
+                /*context.usuarios.Load();
+                misUsuarios = context.usuarios;*/
             }
             catch (Exception ex)
             {
@@ -153,7 +153,7 @@ namespace tp1_grupo6.Logica
             {
     
                     int idNuevoUsuario;
-                    idNuevoUsuario = DB.agregarUsuario(DNI, Nombre, Apellido, Mail, Password, EsADMIN, Bloqueado);
+                    /*idNuevoUsuario = DB.agregarUsuario(DNI, Nombre, Apellido, Mail, Password, EsADMIN, Bloqueado);
                     if (idNuevoUsuario != -1)
                     {
                         //Ahora sí lo agrego en la lista
@@ -165,7 +165,7 @@ namespace tp1_grupo6.Logica
                     {
                         //algo salió mal con la query porque no generó un id válido
                         return false;
-                    }
+                    }*/
                 
             }
             return false;
@@ -263,7 +263,7 @@ namespace tp1_grupo6.Logica
             if (usuarioActual != null)
             {
 
-                usuarioActual.Amigos.Add(amigo);
+                //usuarioActual.Amigos.Add(amigo);
 
             }
 
@@ -283,7 +283,7 @@ namespace tp1_grupo6.Logica
             if (usuarioActual != null)
             {
                 //usuarioActual.Amigos.Remove(amigo);
-                exAmigo.Amigos.Remove(usuarioActual);
+                //exAmigo.Amigos.Remove(usuarioActual);
             }
         }
 

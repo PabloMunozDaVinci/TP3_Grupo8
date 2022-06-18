@@ -48,9 +48,9 @@ namespace tp1_grupo6.Logica
                 .ToTable("Tag")
                 .HasKey(t => t.ID);
             // TABLA UsuarioAmigo
-            modelBuilder.Entity<UsuarioAmigo>()
+            /*modelBuilder.Entity<UsuarioAmigo>()
                 .ToTable("UsuarioAmigo")
-                .HasKey(ua =>ua.);
+                .HasKey(ua =>ua.);*/
 
             //==================== RELACIONES ============================
 
