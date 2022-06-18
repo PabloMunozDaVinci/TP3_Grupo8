@@ -32,8 +32,49 @@ namespace tp1_grupo6.Logica
         {
             try
             {
+
                 // creo el contexto 
                 context = new Context();
+
+
+                context.Usuarios.Include(u => u.MisPosts)
+                   .Include(u => u.MisComentarios)
+                   .Include(u => u.MisReacciones)
+                   .Include(u => u.MisAmigos)
+                   .Include(u => u.AmigosMios)
+                   .Load();
+                misUsuarios = context.Usuarios;
+
+                context.Posts.Include(p => p.Usuario)
+                    .Include(p => p.Comentarios)
+                    .Include(p => p.Reacciones)
+                    .Include(p => p.Tags)
+                    .Load();
+
+
+                context.Comentarios.Include(c => c.Usuario)
+                    .Include(c => c.Post)
+                    .Load();
+
+
+                context.Tags.Include(t => t.TagPost)
+                    .Include(t => t.Posts)
+                    .Load();
+
+
+                context.Reacciones.Include(r => r.Usuario)
+                    .Include(r => r.Post)
+                    .Load();
+
+                //Guardo los cambios 
+
+                context.SaveChanges();
+               // cargo a la memoria los usuarios
+                /*context.usuarios.Load();
+                misUsuarios = context.usuarios;*/
+
+
+
 
                 // cargo a la memoria los usuarios
                 /*context.usuarios.Load();
