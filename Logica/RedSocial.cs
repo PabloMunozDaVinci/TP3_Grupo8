@@ -41,7 +41,7 @@ namespace tp1_grupo6.Logica
                 // creo el contexto 
                 context = new Context();
 
-                // cargo a la memoria los usuarios toda lista y coleccion que tenga la clase de usuario
+                // cargo a la memoria los dbset del contexto, junto con toda lista y coleccion que contengan dichas clases
                 context.Usuarios.Include(u => u.MisPosts)
                     .Include(u => u.MisComentarios)
                     .Include(u => u.MisReacciones)
@@ -71,6 +71,9 @@ namespace tp1_grupo6.Logica
                     .Include(r => r.Post)
                     .Load();
 
+                //Guardo los cambios 
+
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
