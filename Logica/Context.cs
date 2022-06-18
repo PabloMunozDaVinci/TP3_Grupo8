@@ -48,7 +48,9 @@ namespace tp1_grupo6.Logica
                 .ToTable("Tag")
                 .HasKey(t => t.ID);
             // TABLA UsuarioAmigo
-            /*modelBuilder.Entity<UsuarioAmigo>()
+
+            /*
+             * modelBuilder.Entity<UsuarioAmigo>()
                 .ToTable("UsuarioAmigo")
                 .HasKey(ua =>ua.);*/
 
@@ -62,6 +64,7 @@ namespace tp1_grupo6.Logica
                 .WithMany(U => U.MisAmigos)
                 .HasForeignKey(U => U.ID_Usuario)
                 .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<UsuarioAmigo>()
                 .HasOne(UA => UA.Amigo)
                 .WithMany(U => U.AmigosMios)
@@ -74,14 +77,14 @@ namespace tp1_grupo6.Logica
                 .HasOne(C => C.Usuario)
                 .WithMany(U => U.MisComentarios)
                 .HasForeignKey(C => C.UsuarioID)
-                .OnDelete(DeleteBehavior.Cascade);
+                 .OnDelete(DeleteBehavior.Restrict);
 
             // Reacciones-Usuario
             modelBuilder.Entity<Reaccion>()
                 .HasOne(R => R.Usuario)
                 .WithMany(U => U.MisReacciones)
                 .HasForeignKey(R => R.UsuarioID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Post-Usuario
             modelBuilder.Entity<Post>()
@@ -95,21 +98,14 @@ namespace tp1_grupo6.Logica
                 .HasOne(C => C.Post)
                 .WithMany(P => P.Comentarios)
                 .HasForeignKey(C => C.PostID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             // Reaccion-Post
             modelBuilder.Entity<Reaccion>()
                 .HasOne(R => R.Post)
                 .WithMany(P => P.Reacciones)
                 .HasForeignKey(R => R.PostID)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Reaccion-Post
-            modelBuilder.Entity<Reaccion>()
-                .HasOne(R => R.Post)
-                .WithMany(P => P.Reacciones)
-                .HasForeignKey(R => R.PostID)
-                .OnDelete(DeleteBehavior.Cascade);
+               .OnDelete(DeleteBehavior.Restrict);
 
 
             //DEFINICIÓN DE LAS RELACIONES MANY TO MANY

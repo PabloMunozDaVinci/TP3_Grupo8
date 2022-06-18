@@ -11,7 +11,6 @@ namespace tp1_grupo6.Logica
 		public int ID { get; set; }
 		public Usuario Usuario { get; set; } 
 		public int UsuarioID { get; set; }
-		public int ComentarioID   { get; set; }
 		public string Contenido { get; set; }
 		public List<Comentario> Comentarios { get; set; }
 		public List<Reaccion> Reacciones { get; set; }
@@ -25,10 +24,10 @@ namespace tp1_grupo6.Logica
 		public Post()
 		{ }
 		
-		public Post(int ID,int UsuarioID,int ComentarioID, string Contenido,DateTime Fecha){
+		public Post(int ID,int UsuarioID, string Contenido,DateTime Fecha){
 			this.ID = ID;
 			this.UsuarioID = UsuarioID;
-			this.ComentarioID = ComentarioID;
+		
 			this.Contenido = Contenido;
 			this.Fecha = Fecha;
 		
