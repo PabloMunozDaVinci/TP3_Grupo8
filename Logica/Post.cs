@@ -24,8 +24,10 @@ namespace tp1_grupo6.Logica
 		public Post()
 		{ }
 		
-		public Post(int ID,int UsuarioID, string Contenido,DateTime Fecha){
-			this.ID = ID;
+
+
+		public Post(int UsuarioID, string Contenido,DateTime Fecha){
+
 			this.UsuarioID = UsuarioID;
 		
 			this.Contenido = Contenido;

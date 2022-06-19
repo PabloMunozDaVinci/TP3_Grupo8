@@ -34,5 +34,11 @@ namespace tp1_grupo6.Front
         {
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }

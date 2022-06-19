@@ -15,7 +15,6 @@ namespace tp1_grupo6.Front
     public partial class Registrar : Form
     {
         private RedSocial miRed;
-        private string[] argumentos;
         static Regex validate_emailaddress = email_validation();
 
         public Registrar(RedSocial miRed)
@@ -26,7 +25,6 @@ namespace tp1_grupo6.Front
 
         private void Confirmar_Click(object sender, EventArgs e)
         {
-            int DNI = 0;
             string nombre = "";
             string apellido = "";
             string mail = "";
@@ -34,18 +32,7 @@ namespace tp1_grupo6.Front
             string passwordRepetida = "";
             bool esADMIN = false;
             bool bloqueado = false;
-
             bool todoOk = true;
-
-            try
-            {
-                DNI = Int32.Parse(textBoxDNI.Text);
-            }
-            catch
-            {
-                MessageBox.Show("El DNI es un dato numérico.");
-                todoOk = false;
-            }
 
             nombre = textBoxNombre.Text;
             apellido = textBoxApellido.Text;
@@ -53,21 +40,11 @@ namespace tp1_grupo6.Front
             password = textBoxContrasenia.Text;
             passwordRepetida = textBoxContraseniaRepetida.Text;
 
-
-            if (DNI <= 0)
-            {
-                MessageBox.Show("Ingrese DNI");
-                todoOk = false;
-            }
-
-
             if (nombre == "")
             {
                 MessageBox.Show("Ingrese Nombre");
                 todoOk = false;
             }
-
-
             if (mail == "")
             {
                 MessageBox.Show("Ingrese Mail");
@@ -79,8 +56,6 @@ namespace tp1_grupo6.Front
                 textBoxMail.Text = "";
                 todoOk = false;
             }
-
-
             if (validate_emailaddress.IsMatch(mail) != true)
             {
                 MessageBox.Show("Ingrese un Mail válido.");
@@ -100,10 +75,9 @@ namespace tp1_grupo6.Front
                 textBoxContraseniaRepetida.Text = "";
                 todoOk = false;
             }
-
             if (todoOk)
             {
-                miRed.RegistrarUsuario(DNI, nombre, apellido, mail, password, esADMIN, bloqueado);
+                miRed.RegistrarUsuario(nombre, apellido, mail, password, esADMIN, bloqueado);
                 MessageBox.Show("Su Usuario se registro exitosamente.");
                 Dispose();
             }

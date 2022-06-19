@@ -10,19 +10,12 @@ namespace tp1_grupo6.Logica
 {
     public class RedSocial
     {
-        private List<Usuario> usuarios;
-        private List<Post> posts;
-        private List<Tag> tags;
-        public Usuario usuarioActual { get; set; }
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
         private Context context;
-        private DbSet<Usuario> misUsuarios; 
+        public Usuario usuarioActual { get; set; }
         public RedSocial()
         {
-            usuarios = new List<Usuario>();
-            posts = new List<Post>();
-            tags = new List<Tag>();
             this.usuarioActual = usuarioActual;
             this.loginHistory = new Dictionary<string, int>();
             inicializarAtributos();
@@ -32,10 +25,8 @@ namespace tp1_grupo6.Logica
         {
             try
             {
-
                 // creo el contexto 
                 context = new Context();
-
 
                 context.Usuarios.Include(u => u.MisPosts)
                    .Include(u => u.MisComentarios)
@@ -43,7 +34,6 @@ namespace tp1_grupo6.Logica
                    .Include(u => u.MisAmigos)
                    .Include(u => u.AmigosMios)
                    .Load();
-                misUsuarios = context.Usuarios;
 
                 context.Posts.Include(p => p.Usuario)
                     .Include(p => p.Comentarios)
@@ -51,46 +41,27 @@ namespace tp1_grupo6.Logica
                     .Include(p => p.Tags)
                     .Load();
 
-
                 context.Comentarios.Include(c => c.Usuario)
                     .Include(c => c.Post)
                     .Load();
 
-
                 context.Tags.Include(t => t.TagPost)
                     .Include(t => t.Posts)
                     .Load();
-
 
                 context.Reacciones.Include(r => r.Usuario)
                     .Include(r => r.Post)
                     .Load();
 
                 //Guardo los cambios 
-
                 context.SaveChanges();
-               // cargo a la memoria los usuarios
-                /*context.usuarios.Load();
-                misUsuarios = context.usuarios;*/
 
-
-
-
-                // cargo a la memoria los usuarios
-                /*context.usuarios.Load();
-                misUsuarios = context.usuarios;*/
             }
             catch (Exception ex)
             {
 
             }
         }
-
-
-
-
-
-
 
         private string Hashear(string contraseñaSinHashear)
         {
@@ -134,90 +105,64 @@ namespace tp1_grupo6.Logica
         //Falta
         public void ModificarUsuario(int newID, string newNombre, string newApellido, string newMail, string newPassword)
         {
-
             if (usuarioActual != null && usuarioActual.ID == newID)
             {
-
-
                 usuarioActual.Nombre = newNombre;
                 usuarioActual.Apellido = newApellido;
                 usuarioActual.Mail = newMail;
                 usuarioActual.Password = newPassword;
-
-
             }
         }
 
         //no se si funciona
-        public void EliminarUsuario(Usuario u, string Mail)
+        public bool EliminarUsuario(string Mail)
         {
-            foreach (Usuario usuario in usuarios)
+            try
             {
-                if (usuario.Mail == Mail)
-                {
-                    usuarios.Remove(u);
-                }
+                bool salida = false;
+                foreach (Usuario u in context.Usuarios)
+                    if (u.Mail == Mail)
+                    {
+                        context.Usuarios.Remove(u);
+                        salida = true;
+                    }
+                if (salida)
+                    context.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
         // Devuelve el Usuario correspondiente al Mail recibido.
-        private Usuario DevolverUsuario(string Mail)
+        public Usuario DevolverUsuario(string Mail)
         {
-            Usuario usuarioEncontrado = null;
-
-            for (int i = 0; i < usuarios.Count(); i++)
-            {
-                if (usuarios[i].Mail == Mail)
-                {
-                    usuarioEncontrado = usuarios[i];
-                }
-            }
-
-            /*if (usuarios.Count() > 0)
-            {
-                while (usuarios.Count() >= a || usuarioEncontrado == null)
-                {
-                    if (usuarios[a].Mail == Mail)
-                    {
-                        usuarioEncontrado = usuarios[a];
-                    }
-                    a++;
-                }
-            }*/
-
-            return usuarioEncontrado;
+            //Usuario usuarioEncontrado = null;
+            return context.Usuarios.Where(U => U.Mail == Mail).FirstOrDefault();
         }
 
-        public bool RegistrarUsuario(int DNI, string Nombre, string Apellido, string Mail, string Password, bool EsADMIN, bool Bloqueado)
+        public bool RegistrarUsuario(string Nombre, string Apellido, string Mail, string Password, bool EsAdmin, bool Bloqueado)
         {
-            if (!ExisteUsuario(Mail))
+            try
             {
-    
-                    int idNuevoUsuario;
-                    /*idNuevoUsuario = DB.agregarUsuario(DNI, Nombre, Apellido, Mail, Password, EsADMIN, Bloqueado);
-                    if (idNuevoUsuario != -1)
-                    {
-                        //Ahora sí lo agrego en la lista
-                        Usuario nuevo = new Usuario(idNuevoUsuario, DNI, Nombre, Apellido, Mail, this.Hashear(Password), EsADMIN, Bloqueado);
-                        usuarios.Add(nuevo);
-                        return true;
-                    }
-                    else
-                    {
-                        //algo salió mal con la query porque no generó un id válido
-                        return false;
-                    }*/
-                
+                Usuario nuevo = new Usuario { Nombre = Nombre, Apellido = Apellido, Mail = Mail, Password = Password, EsAdmin = EsAdmin, Bloqueado = Bloqueado };
+                context.Usuarios.Add(nuevo);
+                context.SaveChanges();
+                return true;
             }
-            return false;
+            catch (Exception)
+            {
+                return false;
+            }            
         }
-
 
         // Se autentica al Usuario.
         public bool IniciarUsuario(string Mail, string Password)
         {
             bool ok = false;
-            Usuario usuario = this.DevolverUsuario(Mail);
+            Usuario usuario = DevolverUsuario(Mail);
             if (usuario.Password == Password)
             {
                 usuarioActual = usuario;
@@ -225,6 +170,7 @@ namespace tp1_grupo6.Logica
             }
             return ok;
         }
+
         // Se valida si el usuario existe y devuelve true o false
         public bool ExisteUsuario(string Mail)
         {
@@ -234,7 +180,9 @@ namespace tp1_grupo6.Logica
             }
             return false;
         }
-        // se obtiene el ID del usuario
+
+        /*
+         * se obtiene el ID del usuario
         public int obtenerUsuarioId(string Mail)
         {
             foreach (Usuario u in usuarios)
@@ -245,13 +193,13 @@ namespace tp1_grupo6.Logica
                 }
             }
             return 0;
-        }
+        }*/
 
         // Bloquea/Desbloquea el Usuario que se corresponde con el DNI recibido.
         public bool bloquearDesbloquearUsuario(string Mail, bool Bloqueado)
         {
             bool todoOk = false;
-            foreach (Usuario u in usuarios)
+            foreach (Usuario u in context.Usuarios)
             {
                 if (u.Mail == Mail)
                 {
@@ -261,19 +209,6 @@ namespace tp1_grupo6.Logica
             }
             return todoOk;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // funciona
         public bool CerrarSesion(Usuario u)
@@ -287,17 +222,6 @@ namespace tp1_grupo6.Logica
             return true;
         }
 
-
-
-
-
-
-
-
-
-
-
-
         // no se si funciona
         public void AgregarAmigo(Usuario amigo)
         {
@@ -310,14 +234,6 @@ namespace tp1_grupo6.Logica
 
         }
 
-
-
-
-
-
-
-
-
         // no funciona
         public void QuitarAmigo(Usuario exAmigo)
         {
@@ -328,65 +244,38 @@ namespace tp1_grupo6.Logica
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         // no se si funciona
-        public void Postear(Post p, List<Tag> t)
+
+        public bool Postear(int userID, String postContenido,DateTime Fecha)
         {
-            bool encontre = false;
-
-            posts.Add(p);
-            usuarioActual.MisPosts.Add(p);
-            foreach (Tag tagP in t)
+            DateTime now = DateTime.Now;
+            try
             {
-                encontre = false;
-
-                foreach (Tag tag in tags)
+                Usuario usrAux = context.Usuarios.Where(u => u.ID == userID).FirstOrDefault();
+              
+                if (usrAux != null )
                 {
-                    if (tag == tagP)
-                    {
-                        encontre = true;
-                    }
+
+                    Post postAux = new Post { UsuarioID = userID/*usuarioActual.userID*/, Contenido = postContenido, Fecha = now};
+                    
+                    context.Posts.Add(postAux);
+                    usrAux.MisPosts.Add(postAux);  
+                    //context.Usuarios.Update(usrAux);
+                    //postAux.Usuario.Add(usrAux); 
+                    context.SaveChanges();
+
+                    return true;
                 }
-
-                if (encontre == false)
-                {
-                    tags.Add(tagP);
-                }
-
-                tagP.Posts.Add(p);
-                p.Tags.Add(tagP);
-
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                return false;
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // no funciona
+        /* no funciona
         public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
         {
             foreach (Post post in posts)
@@ -404,33 +293,11 @@ namespace tp1_grupo6.Logica
             }
         }
 
-
-
-
-
-
-
-
-
-
         // no hecho
         public void EliminarPost(Post p)
         {
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // no funciona
         public void Comentar(Post p, Comentario c)
@@ -458,22 +325,6 @@ namespace tp1_grupo6.Logica
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // no funciona
         public void ModificarComentario(Post p, Comentario c)
         {
@@ -498,26 +349,6 @@ namespace tp1_grupo6.Logica
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public void QuitarComentario(Post p, Comentario c)
         {
             {
@@ -549,23 +380,38 @@ namespace tp1_grupo6.Logica
                     }
                 }
             }
-        }
+        }*/
 
+    public List<Post> obtenerPosts()
+    {
+        return context.Posts.ToList();
+    }
 
+    public List<Comentario> obtenerComentarios()
+    {
+        return context.Comentarios.ToList();
 
+    }
 
+    public List<Reaccion> obtenerReacciones()
+    {
+        return context.Reacciones.ToList();
 
+    }
 
+    public List<Tag> obtenerTags()
+    {
+        return context.Tags.ToList();
 
+    }
 
+    public List<Usuario> obtenerUsuarios()
+    {
+        return context.Usuarios.ToList();
 
+    }
 
-
-
-
-
-
-        public void Reaccionar(Post p, Reaccion r)
+    public void Reaccionar(Post p, Reaccion r)
         {
 
         }
