@@ -246,7 +246,7 @@ namespace tp1_grupo6.Logica
 
         // no se si funciona
 
-        public bool Postear(int userID, String postContenido,DateTime Fecha)
+        public bool Postear(int userID, String postContenido)
         {
             DateTime now = DateTime.Now;
             try

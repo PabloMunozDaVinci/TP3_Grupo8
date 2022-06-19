@@ -63,6 +63,7 @@ namespace tp1_grupo6.Front
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel7.SuspendLayout();
@@ -108,6 +109,7 @@ namespace tp1_grupo6.Front
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.textBox4);
             this.panel8.Controls.Add(this.button3);
             this.panel8.Controls.Add(this.button10);
             this.panel8.Controls.Add(this.button14);
@@ -249,6 +251,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel4
             // 
@@ -344,6 +347,11 @@ namespace tp1_grupo6.Front
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
+            // textBox4
+            // 
+            resources.ApplyResources(this.textBox4, "textBox4");
+            this.textBox4.Name = "textBox4";
+            // 
             // Index
             // 
             resources.ApplyResources(this, "$this");
@@ -358,6 +366,7 @@ namespace tp1_grupo6.Front
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -404,5 +413,6 @@ namespace tp1_grupo6.Front
         private Button button11;
         private ListView listView3;
         private ListView listView2;
+        private TextBox textBox4;
     }
 }

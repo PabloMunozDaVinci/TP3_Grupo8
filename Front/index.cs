@@ -74,5 +74,22 @@ namespace tp1_grupo6.Front
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+
+                string contenido;
+
+                contenido = textBox1.Text;
+
+                Console.WriteLine(contenido);
+
+                miRed.Postear(miRed.usuarioActual.ID, contenido);
+
+                textBox4.Text = contenido;
+            }
+        }
     }
 }
