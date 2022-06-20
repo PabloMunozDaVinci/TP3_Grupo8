@@ -262,25 +262,23 @@ namespace tp1_grupo6.Logica
             }
         }
 
-        // no se si funciona
-
+        // Metodo para agregar un nuevo Post
         public bool Postear(int userID, String postContenido)
         {
             DateTime now = DateTime.Now;
             try
             {
-                Usuario usrAux = context.Usuarios.Where(u => u.ID == userID).FirstOrDefault();
-              
-                if (usrAux != null )
+                Usuario usrAux = usuarioActual;
+
+                if (usrAux != null)
                 {
 
-                    Post postAux = new Post { UsuarioID = userID/*usuarioActual.userID*/, Contenido = postContenido, Fecha = now};
-                    
+                    Post postAux = new Post { UsuarioID = usuarioActual.ID, Contenido = postContenido, Fecha = now };
+
                     context.Posts.Add(postAux);
                     usrAux.MisPosts.Add(postAux);
-                    
-                    //context.Usuarios.Update(usrAux);
-                    //postAux.Usuario.Add(usrAux); 
+
+
                     context.SaveChanges();
 
                     return true;
@@ -401,7 +399,7 @@ namespace tp1_grupo6.Logica
             }
         }*/
 
-    public List<Post> obtenerPosts()
+        public List<Post> obtenerPosts()
     {
         return context.Posts.ToList();
     }
