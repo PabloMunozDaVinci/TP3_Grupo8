@@ -46,14 +46,26 @@ namespace tp1_grupo6
                     loginOk = miRed.IniciarUsuario(usuarioIngresado, contraseniaIngresada);
                     if (loginOk)
                     {
-
-                        Form formIndex = new Front.Index(this.miRed);
-                        textUsuario.Text = "";
-                        textContrasenia.Text = "";
-                        miRed.loginHistory.Clear();
-                        this.Hide();
-                        formIndex.ShowDialog();
-                        this.Show();
+                        if(miRed.usuarioActual.EsAdmin == false)
+                        {
+                            Form formIndex = new Front.Index(this.miRed);
+                            textUsuario.Text = "";
+                            textContrasenia.Text = "";
+                            miRed.loginHistory.Clear();
+                            this.Hide();
+                            formIndex.ShowDialog();
+                            this.Show();
+                        }
+                        else
+                        {
+                            Form formAdmin = new Front.Admin(this.miRed);
+                            textUsuario.Text = "";
+                            textContrasenia.Text = "";
+                            miRed.loginHistory.Clear();
+                            this.Hide();
+                            formAdmin.ShowDialog();
+                            this.Show();
+                        }
                     }
                     else
                     {
