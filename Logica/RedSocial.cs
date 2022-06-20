@@ -262,15 +262,16 @@ namespace tp1_grupo6.Logica
             }
         }
 
-        // no se si funciona
+        // funciona
 
         public bool Postear(int userID, String postContenido)
         {
             DateTime now = DateTime.Now;
             try
             {
-                Usuario usrAux = context.Usuarios.Where(u => u.ID == userID).FirstOrDefault();
-              
+            //Usuario usrAux = context.Usuarios.Where(u => u.ID == userID).FirstOrDefault();
+            Usuario usrAux = usuarioActual;
+
                 if (usrAux != null )
                 {
 
@@ -294,7 +295,7 @@ namespace tp1_grupo6.Logica
             }
         }
 
-        /* no funciona
+      
         public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
         {
             foreach (Post post in posts)
@@ -311,6 +312,10 @@ namespace tp1_grupo6.Logica
                 }
             }
         }
+
+
+
+
 
         // no hecho
         public void EliminarPost(Post p)

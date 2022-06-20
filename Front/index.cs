@@ -91,5 +91,10 @@ namespace tp1_grupo6.Front
                 textBox4.Text = contenido;
             }
         }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
