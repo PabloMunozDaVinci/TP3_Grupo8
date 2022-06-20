@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using tp1_grupo6.Logica;
+using tp1_grupo6.Front;
 
 namespace tp1_grupo6.Front
 {
@@ -54,6 +55,10 @@ namespace tp1_grupo6.Front
         {
             miRed.EliminarUsuario();
             MessageBox.Show("Su Usuario fue eliminado");
+            Form login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Show();
             Dispose();
         }
     }
