@@ -16,18 +16,17 @@ namespace tp1_grupo6
     public partial class Login : Form
     {
         public RedSocial miRed;
-        private Usuario usuario;
         public string usuarioIngresado;
         public string contraseniaIngresada;
         public bool loginOk;
-        private string[] argumentos;
 
-        public Login(string[] args)
+
+        public Login()
         {
             miRed = new RedSocial();
 
             InitializeComponent();
-            argumentos = args;
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -47,8 +46,8 @@ namespace tp1_grupo6
                     loginOk = miRed.IniciarUsuario(usuarioIngresado, contraseniaIngresada);
                     if (loginOk)
                     {
-                        argumentos[0] = "user";
-                        Form formIndex = new Front.Index(this.miRed, this.usuario);
+
+                        Form formIndex = new Front.Index(this.miRed);
                         textUsuario.Text = "";
                         textContrasenia.Text = "";
                         miRed.loginHistory.Clear();
