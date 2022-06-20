@@ -102,33 +102,63 @@ namespace tp1_grupo6.Logica
             return DevolverUsuario(Mail).Bloqueado;
         }
 
-        //Falta
-        public void ModificarUsuario(int newID, string newNombre, string newApellido, string newMail, string newPassword)
-        {
-            if (usuarioActual != null && usuarioActual.ID == newID)
-            {
-                usuarioActual.Nombre = newNombre;
-                usuarioActual.Apellido = newApellido;
-                usuarioActual.Mail = newMail;
-                usuarioActual.Password = newPassword;
-            }
-        }
-
-        //no se si funciona
-        public bool EliminarUsuario(string Mail)
+        // Modificar los datos del usuario logeado
+        public bool ModificarUsuario(string newNombre, string newApellido, string newMail, string newPassword)
         {
             try
             {
-                bool salida = false;
-                foreach (Usuario u in context.Usuarios)
-                    if (u.Mail == Mail)
-                    {
-                        context.Usuarios.Remove(u);
-                        salida = true;
-                    }
-                if (salida)
-                    context.SaveChanges();
-                return salida;
+                if(newNombre != "")
+                {
+                    newNombre = usuarioActual.Nombre = newNombre;
+                }
+                else
+                {
+                    newNombre = usuarioActual.Nombre;
+                }
+                if (newApellido != "")
+                {
+                    newApellido = usuarioActual.Apellido = newApellido;
+                }
+                else
+                {
+                    newApellido = usuarioActual.Apellido;
+                }
+                if (newMail != "")
+                {
+                    newMail = usuarioActual.Mail = newMail;
+                }
+                else
+                {
+                    newMail = usuarioActual.Mail;
+                }
+                if (newPassword != "")
+                {
+                    newPassword = usuarioActual.Password = newPassword;
+                }
+                else
+                {
+                    newPassword = usuarioActual.Password;
+                }
+                context.Usuarios.Update(usuarioActual);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        // Elimina al usuario logueado
+        public bool EliminarUsuario()
+        {
+            try
+            {
+                bool salida = false;                 
+                context.Usuarios.Remove(usuarioActual);
+                context.SaveChanges();
+
+                return salida;                                    
             }
             catch (Exception)
             {
@@ -143,6 +173,7 @@ namespace tp1_grupo6.Logica
             return context.Usuarios.Where(U => U.Mail == Mail).FirstOrDefault();
         }
 
+        // Se registra un nuevo usuario
         public bool RegistrarUsuario(string Nombre, string Apellido, string Mail, string Password, bool EsAdmin, bool Bloqueado)
         {
             try
@@ -181,20 +212,6 @@ namespace tp1_grupo6.Logica
             return false;
         }
 
-        /*
-         * se obtiene el ID del usuario
-        public int obtenerUsuarioId(string Mail)
-        {
-            foreach (Usuario u in usuarios)
-            {
-                if (u.Mail == Mail)
-                {
-                    return u.ID;
-                }
-            }
-            return 0;
-        }*/
-
         // Bloquea/Desbloquea el Usuario que se corresponde con el DNI recibido.
         public bool bloquearDesbloquearUsuario(string Mail, bool Bloqueado)
         {
@@ -210,14 +227,15 @@ namespace tp1_grupo6.Logica
             return todoOk;
         }
 
-        // funciona
-        public bool CerrarSesion(Usuario u)
+        // Cierra la sesion 
+        public bool CerrarSesion()
         {
             //Pregunto si existe usuario Actual
             if (usuarioActual != null)
             {
                 //seteo el usuario actual a null
                 usuarioActual = null;
+                context.Dispose();
             }
             return true;
         }
@@ -259,7 +277,8 @@ namespace tp1_grupo6.Logica
                     Post postAux = new Post { UsuarioID = userID/*usuarioActual.userID*/, Contenido = postContenido, Fecha = now};
                     
                     context.Posts.Add(postAux);
-                    usrAux.MisPosts.Add(postAux);  
+                    usrAux.MisPosts.Add(postAux);
+                    
                     //context.Usuarios.Update(usrAux);
                     //postAux.Usuario.Add(usrAux); 
                     context.SaveChanges();

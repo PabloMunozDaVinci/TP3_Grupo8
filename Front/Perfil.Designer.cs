@@ -44,6 +44,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBoxMail = new System.Windows.Forms.TextBox();
@@ -177,6 +179,8 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Lavender;
+            this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.button2);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.textBox3);
             this.panel5.Controls.Add(this.textBoxMail);
@@ -191,6 +195,26 @@
             this.panel5.Controls.Add(this.panel6);
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Gray;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Gray;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -303,5 +327,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox3;
+        private Button button3;
+        private Button button2;
     }
 }

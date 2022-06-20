@@ -81,7 +81,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>1044, 6</value>
@@ -1698,7 +1698,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="pictureBox3.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
@@ -1731,6 +1731,60 @@
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>504, 48</value>
+  </data>
+  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 47</value>
+  </data>
+  <data name="button3.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="button3.Text" xml:space="preserve">
+    <value>Eliminar mi cuenta</value>
+  </data>
+  <data name="&gt;&gt;button3.Name" xml:space="preserve">
+    <value>button3</value>
+  </data>
+  <data name="&gt;&gt;button3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button3.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 309</value>
+  </data>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 33</value>
+  </data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>Modificar datos</value>
+  </data>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
+    <value>button2</value>
+  </data>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1762,7 +1816,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 241</value>
@@ -1783,7 +1837,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="textBoxMail.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 191</value>
@@ -1804,7 +1858,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;textBoxMail.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1837,7 +1891,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="textBoxApellido.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 139</value>
@@ -1858,7 +1912,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;textBoxApellido.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1891,7 +1945,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="textBoxNombre.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 90</value>
@@ -1912,7 +1966,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;textBoxNombre.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1945,7 +1999,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1978,7 +2032,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="listView3.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 448</value>
@@ -1999,7 +2053,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;listView3.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>461, 123</value>

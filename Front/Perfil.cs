@@ -40,5 +40,21 @@ namespace tp1_grupo6.Front
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (miRed.ModificarUsuario(textBoxNombre.Text, textBoxApellido.Text, textBoxMail.Text, textBox3.Text))
+            {
+                MessageBox.Show("Modificado con éxito");
+            }
+            else
+                MessageBox.Show("No se pudo modificar el usuario");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            miRed.EliminarUsuario();
+            MessageBox.Show("Su Usuario fue eliminado");
+            Dispose();
+        }
     }
 }
