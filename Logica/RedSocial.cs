@@ -292,6 +292,41 @@ namespace tp1_grupo6.Logica
             }
         }
 
+
+        public bool Comentar(String comentarioContenido, int postID)
+        {
+            try
+            {
+                DateTime now = DateTime.Now;
+                Usuario usrAux = usuarioActual;
+
+                if (usrAux != null)
+                {
+
+                    Comentario comentarioAux = new Comentario { PostID= postID ,UsuarioID = usuarioActual.ID, Contenido = comentarioContenido, Fecha = now };
+
+                    context.Comentarios.Add(comentarioAux);
+                    usrAux.MisComentarios.Add(comentarioAux);
+
+
+                    context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+
+
+
+
+
         /* no funciona
         public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
         {
@@ -317,30 +352,7 @@ namespace tp1_grupo6.Logica
         }
 
         // no funciona
-        public void Comentar(Post p, Comentario c)
-        {
-            //pregunto si el conteo de post es mayor a 0 para determinar si existen posts
-            if (posts.Count > 0)
-            {
-                bool encontre = false;
-                //registro el ID del post a guardar
-                int id = 0;
-                id = p.ID;
-                foreach (Post postAux in posts)
-                {
-                    if (postAux.ID == id)
-                    {
-                        encontre = true;
-                        //Agrego al Post actual el comentario
-                        postAux.Comentarios.Add(c);
-                        //al usuario actual le agrego a su lista el comentario que realizó
-                        usuarioActual.MisComentarios.Add(c);
-                        //si realiza mas comentarios deben tener ID  diferente
-                        //usuarioActual.MisComentarios.
-                    }
-                }
-            }
-        }
+       
 
         // no funciona
         public void ModificarComentario(Post p, Comentario c)
@@ -401,7 +413,7 @@ namespace tp1_grupo6.Logica
 
         public List<Post> obtenerPosts()
     {
-        return context.Posts.ToList();
+        return  context.Posts.ToList();
     }
 
     public List<Comentario> obtenerComentarios()
