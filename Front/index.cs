@@ -13,13 +13,28 @@ namespace tp1_grupo6.Front
     {
         private RedSocial miRed;
         private Usuario usuario;
-
+        private int postID;
         public Index(RedSocial miRed)
         {
             this.miRed = miRed;
 
             InitializeComponent();
+            refreshVista();
+        }
 
+
+        private void refreshVista()
+        {
+            var postsObtenidos = miRed.obtenerPosts();
+            textBox1.Text = "";
+            textBox2.Text="";
+            textBox9.Text = "";
+            textBox13.Text = "";
+            textBox6.Text = "";
+            textBox5.Text = postsObtenidos.Last().Contenido.ToString();
+            textBox8.Text = postsObtenidos[^2].Contenido.ToString();
+            textBox15.Text = postsObtenidos[^3].Contenido.ToString();
+            textBox12.Text = postsObtenidos[^4].Contenido.ToString();
         }
 
         private void index_Load(object sender, EventArgs e)
@@ -39,7 +54,7 @@ namespace tp1_grupo6.Front
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -80,15 +95,52 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
 
+
+
+
+
                 string contenido;
 
                 contenido = textBox1.Text;
 
-                Console.WriteLine(contenido);
-
                 miRed.Postear(miRed.usuarioActual.ID, contenido);
 
-                textBox4.Text = contenido;
+
+                var postsObtenidos = miRed.obtenerPosts();
+
+                textBox5.Text = postsObtenidos.Last().Contenido.ToString();
+
+
+
+
+
+
+
+             
+
+
+          
+                 postID = miRed.usuarioActual.MisPosts.Last().ID;
+
+
+
+
+
+       
+
+
+
+
+
+
+                //textBox5.Text = miRed.usuarioActual.MisPosts[^2].Contenido.ToString();
+
+
+                // textBox5.Text = miRed.usuarioActual.MisPosts.Last().Contenido.ToString();
+
+                refreshVista();
+
+
             }
         }
 
@@ -100,6 +152,48 @@ namespace tp1_grupo6.Front
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+
+                string contenido;
+
+                contenido = textBox2.Text;
+
+                miRed.Comentar(contenido, postID);
+
+
+
+
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                textBox4.Text = comentariosObtenidos[^1].Contenido.ToString();
+
+
+                //textBox5.Text = miRed.usuarioActual.MisPosts[^2].Contenido.ToString();
+
+
+                //  textBox5.Text = miRed.usuarioActual.MisPosts.Last().Contenido.ToString();
+
+                refreshVista();
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+         
         }
     }
 }
