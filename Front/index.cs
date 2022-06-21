@@ -26,11 +26,15 @@ namespace tp1_grupo6.Front
         private void refreshVista()
         {
             var postsObtenidos = miRed.obtenerPosts();
-
-            textBox5.Text = postsObtenidos[^2].Contenido.ToString();
-            textBox8.Text = postsObtenidos[^3].Contenido.ToString();
-            textBox15.Text = postsObtenidos[^4].Contenido.ToString();
-            textBox12.Text = postsObtenidos[^5].Contenido.ToString();
+            textBox1.Text = "";
+            textBox2.Text="";
+            textBox9.Text = "";
+            textBox13.Text = "";
+            textBox6.Text = "";
+            textBox5.Text = postsObtenidos.Last().Contenido.ToString();
+            textBox8.Text = postsObtenidos[^2].Contenido.ToString();
+            textBox15.Text = postsObtenidos[^3].Contenido.ToString();
+            textBox12.Text = postsObtenidos[^4].Contenido.ToString();
         }
 
         private void index_Load(object sender, EventArgs e)
@@ -100,17 +104,17 @@ namespace tp1_grupo6.Front
 
 
 
-
+             
 
                 var postsObtenidos = miRed.obtenerPosts();
-                textBox5.Text = postsObtenidos[^2].Contenido.ToString();
+                textBox5.Text = postsObtenidos.Last().Contenido.ToString();
 
 
                 //ESTO ESTA MUY MAL 
-                postID = miRed.usuarioActual.MisPosts.Last().ID;
+                 postID = miRed.usuarioActual.MisPosts.Last().ID;
+                // postID = postsObtenidos[^2].ID;
 
-
-
+     
                 //textBox5.Text = miRed.usuarioActual.MisPosts[^2].Contenido.ToString();
 
 
@@ -152,7 +156,7 @@ namespace tp1_grupo6.Front
 
 
                 var comentariosObtenidos = miRed.obtenerComentarios();
-                textBox4.Text = comentariosObtenidos[^2].Contenido.ToString();
+                textBox4.Text = comentariosObtenidos[^1].Contenido.ToString();
 
 
                 //textBox5.Text = miRed.usuarioActual.MisPosts[^2].Contenido.ToString();

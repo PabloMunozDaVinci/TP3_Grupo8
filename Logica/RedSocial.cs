@@ -277,7 +277,7 @@ namespace tp1_grupo6.Logica
 
                     context.Posts.Add(postAux);
                     usrAux.MisPosts.Add(postAux);
-
+                    context.Usuarios.Update(usrAux);
 
                     context.SaveChanges();
 
