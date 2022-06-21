@@ -12,12 +12,11 @@ namespace tp1_grupo6.Front
     public partial class Index : Form
     {
         private RedSocial miRed;
-        private Usuario usuario;
-        private int postID;
+
+        
         public Index(RedSocial miRed)
         {
             this.miRed = miRed;
-
             InitializeComponent();
             refreshVista();
         }
@@ -26,15 +25,25 @@ namespace tp1_grupo6.Front
         private void refreshVista()
         {
             var postsObtenidos = miRed.obtenerPosts();
-            textBox1.Text = "";
-            textBox2.Text="";
-            textBox9.Text = "";
-            textBox13.Text = "";
-            textBox6.Text = "";
-            textBox5.Text = postsObtenidos.Last().Contenido.ToString();
-            textBox8.Text = postsObtenidos[^2].Contenido.ToString();
-            textBox15.Text = postsObtenidos[^3].Contenido.ToString();
-            textBox12.Text = postsObtenidos[^4].Contenido.ToString();
+            if (postsObtenidos != null)
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                if (post1 != null || post2 != null || post3 != null || post4 != null
+                || Comentario1 != null || Comentario2 != null || Comentario3 != null || Comentario4 != null)
+                {
+                    post1.Text = postsObtenidos[^1].Contenido.ToString();
+                    post2.Text = postsObtenidos[^2].Contenido.ToString();
+                    post3.Text = postsObtenidos[^3].Contenido.ToString();
+                    post4.Text = postsObtenidos[^4].Contenido.ToString();
+                    Comentario1.Text = postsObtenidos[^1].Comentarios.Last().Contenido.ToString();
+                    Comentario2.Text = postsObtenidos[^2].Comentarios.Last().Contenido.ToString();
+                    Comentario3.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
+                    Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
+                }
+
+            }
+
         }
 
         private void index_Load(object sender, EventArgs e)
@@ -59,7 +68,7 @@ namespace tp1_grupo6.Front
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Form perfil = new Perfil(this.miRed, this.usuario);
+            Form perfil = new Perfil(this.miRed);
             this.Hide();
             perfil.ShowDialog();
             this.Show();
@@ -94,52 +103,12 @@ namespace tp1_grupo6.Front
         {
             if (miRed.usuarioActual != null)
             {
-
-
-
-
-
                 string contenido;
-
                 contenido = textBox1.Text;
-
                 miRed.Postear(miRed.usuarioActual.ID, contenido);
-
-
                 var postsObtenidos = miRed.obtenerPosts();
-
-                textBox5.Text = postsObtenidos.Last().Contenido.ToString();
-
-
-
-
-
-
-
-             
-
-
-          
-                 postID = miRed.usuarioActual.MisPosts.Last().ID;
-
-
-
-
-
-       
-
-
-
-
-
-
-                //textBox5.Text = miRed.usuarioActual.MisPosts[^2].Contenido.ToString();
-
-
-                // textBox5.Text = miRed.usuarioActual.MisPosts.Last().Contenido.ToString();
-
+                post1.Text = postsObtenidos.Last().Contenido.ToString();              
                 refreshVista();
-
 
             }
         }
@@ -163,25 +132,11 @@ namespace tp1_grupo6.Front
         {
             if (miRed.usuarioActual != null)
             {
-
-                string contenido;
-
-                contenido = textBox2.Text;
-
-                miRed.Comentar(contenido, postID);
-
-
-
-
                 var comentariosObtenidos = miRed.obtenerComentarios();
-                textBox4.Text = comentariosObtenidos[^1].Contenido.ToString();
-
-
-                //textBox5.Text = miRed.usuarioActual.MisPosts[^2].Contenido.ToString();
-
-
-                //  textBox5.Text = miRed.usuarioActual.MisPosts.Last().Contenido.ToString();
-
+                string contenido;
+                contenido = textBox2.Text;
+                miRed.Comentar(contenido, comentariosObtenidos[^1].ID);                
+                Comentario1.Text = comentariosObtenidos[^1].Contenido.ToString();
                 refreshVista();
             }
         }
