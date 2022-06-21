@@ -38,5 +38,10 @@ namespace tp1_grupo6.Logica
 
         }
 
+        public string[] toArray()
+        {
+            return new string[] { Nombre, Apellido, Mail, Bloqueado.ToString() };
+        }
+
     }
 }

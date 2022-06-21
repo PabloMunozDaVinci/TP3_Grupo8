@@ -463,5 +463,34 @@ namespace tp1_grupo6.Logica
 
         }
 
+        // Metodo para eliminar usuarios siendo el usuario administrador
+        public bool EliminarUsuarioAdmin(string Nombre, string Apellido, string Mail)
+        {
+            try
+            {
+                bool salida = false;
+                foreach (Usuario u in context.Usuarios)
+                    if (u.Mail == Mail)
+                    {
+                        context.Usuarios.Remove(u);
+                        salida = true;
+                    }
+                if (salida)
+                    context.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        // Obtiene 1 usuario en cuestion
+        public Usuario obtenerUsuario(string nombre)
+        {
+            return context.Usuarios.Where(U => U.Nombre == nombre).FirstOrDefault();
+        }
+
+
     }
 }
