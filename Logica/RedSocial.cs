@@ -322,7 +322,22 @@ namespace tp1_grupo6.Logica
             }
         }
 
+        public bool EliminarPost(int pID)
+        {
+            bool salida = false; 
+            foreach (Post p in context.Posts)
+            if (p.ID == pID)
+            {
+                    context.Posts.Remove(p);
+                    salida = true;
+            }
+            if (salida)
+                context.SaveChanges();
+            return salida;
 
+
+
+        }
 
 
 
@@ -346,10 +361,7 @@ namespace tp1_grupo6.Logica
         }
 
         // no hecho
-        public void EliminarPost(Post p)
-        {
-
-        }
+       
 
         // no funciona
        

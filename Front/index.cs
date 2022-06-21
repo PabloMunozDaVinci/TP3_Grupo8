@@ -95,6 +95,10 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
 
+
+
+
+
                 string contenido;
 
                 contenido = textBox1.Text;
@@ -102,19 +106,35 @@ namespace tp1_grupo6.Front
                 miRed.Postear(miRed.usuarioActual.ID, contenido);
 
 
+                var postsObtenidos = miRed.obtenerPosts();
+
+                textBox5.Text = postsObtenidos.Last().Contenido.ToString();
+
+
+
+                listBox1.DataSource = null;
+                listBox1.DataSource = postsObtenidos.Last().Contenido.ToString();
+
+
 
 
              
 
-                var postsObtenidos = miRed.obtenerPosts();
-                textBox5.Text = postsObtenidos.Last().Contenido.ToString();
-
 
                 //ESTO ESTA MUY MAL 
                  postID = miRed.usuarioActual.MisPosts.Last().ID;
-                // postID = postsObtenidos[^2].ID;
 
-     
+
+
+
+
+       
+
+
+
+
+
+
                 //textBox5.Text = miRed.usuarioActual.MisPosts[^2].Contenido.ToString();
 
 
@@ -166,6 +186,22 @@ namespace tp1_grupo6.Front
 
                 refreshVista();
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            if (usuarios.eliminarUsuario(int.Parse(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, checkBox1.Checked, checkBox2.Checked))
+            {
+                MessageBox.Show("Eliminado con éxito");
+                refreshVista();
+            }
+            else
+                MessageBox.Show("No se pudo eliminar el usuario");
         }
     }
 }
