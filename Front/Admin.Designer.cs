@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ButtonEliminarUsuario = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,9 +44,6 @@
             this.labelIntentos = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -50,6 +52,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.ButtonEliminarUsuario);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
@@ -63,6 +67,47 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(562, 238);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(225, 23);
+            this.textBox3.TabIndex = 38;
+            // 
+            // ButtonEliminarUsuario
+            // 
+            this.ButtonEliminarUsuario.Location = new System.Drawing.Point(166, 822);
+            this.ButtonEliminarUsuario.Name = "ButtonEliminarUsuario";
+            this.ButtonEliminarUsuario.Size = new System.Drawing.Size(122, 33);
+            this.ButtonEliminarUsuario.TabIndex = 37;
+            this.ButtonEliminarUsuario.Text = "Eliminar Usuario";
+            this.ButtonEliminarUsuario.UseVisualStyleBackColor = true;
+            this.ButtonEliminarUsuario.Click += new System.EventHandler(this.ButtonEliminarUsuario_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(830, 175);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 33);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "Modificar Usuario";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(562, 181);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(225, 23);
+            this.textBox2.TabIndex = 35;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(562, 126);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(225, 23);
+            this.textBox1.TabIndex = 34;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -74,8 +119,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(30, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(443, 760);
+            this.dataGridView1.Size = new System.Drawing.Size(443, 666);
             this.dataGridView1.TabIndex = 33;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // Nombre
             // 
@@ -137,32 +183,6 @@
             this.usuarioBindingSource.DataSource = typeof(tp1_grupo6.Logica.Usuario);
             this.usuarioBindingSource.CurrentChanged += new System.EventHandler(this.usuarioBindingSource_CurrentChanged);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(562, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Nombre";
-            this.textBox1.Size = new System.Drawing.Size(225, 23);
-            this.textBox1.TabIndex = 34;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(562, 181);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Apellido";
-            this.textBox2.Size = new System.Drawing.Size(225, 23);
-            this.textBox2.TabIndex = 35;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(562, 248);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 33);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Modificar Usuario";
-            this.button2.UseVisualStyleBackColor = true;
-            //this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -195,5 +215,7 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Button button2;
+        private Button ButtonEliminarUsuario;
+        private TextBox textBox3;
     }
 }
