@@ -112,8 +112,6 @@ namespace tp1_grupo6.Front
 
 
 
-                listBox1.DataSource = null;
-                listBox1.DataSource = postsObtenidos.Last().Contenido.ToString();
 
 
 
@@ -121,7 +119,7 @@ namespace tp1_grupo6.Front
              
 
 
-                //ESTO ESTA MUY MAL 
+          
                  postID = miRed.usuarioActual.MisPosts.Last().ID;
 
 
@@ -195,13 +193,7 @@ namespace tp1_grupo6.Front
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            if (usuarios.eliminarUsuario(int.Parse(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, checkBox1.Checked, checkBox2.Checked))
-            {
-                MessageBox.Show("Eliminado con éxito");
-                refreshVista();
-            }
-            else
-                MessageBox.Show("No se pudo eliminar el usuario");
+         
         }
     }
 }
