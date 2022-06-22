@@ -42,7 +42,6 @@ namespace tp1_grupo6.Front
                     Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
                 }
             }
-
         }
 
         private void index_Load(object sender, EventArgs e)

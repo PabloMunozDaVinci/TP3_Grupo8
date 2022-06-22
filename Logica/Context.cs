@@ -94,7 +94,7 @@ namespace tp1_grupo6.Logica
                 .HasOne(C => C.Post)
                 .WithMany(P => P.Comentarios)
                 .HasForeignKey(C => C.PostID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Reaccion-Post
             modelBuilder.Entity<Reaccion>()
