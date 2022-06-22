@@ -13,7 +13,7 @@ namespace tp1_grupo6.Front
     {
         private RedSocial miRed;
 
-        
+
         public Index(RedSocial miRed)
         {
             this.miRed = miRed;
@@ -41,7 +41,6 @@ namespace tp1_grupo6.Front
                     Comentario3.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
                     Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
                 }
-
             }
 
         }
@@ -128,15 +127,16 @@ namespace tp1_grupo6.Front
 
         }
 
+        // Comentar Ultimo Post
         private void button10_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
             {
-                var comentariosObtenidos = miRed.obtenerComentarios();
+                var postsObtenidos = miRed.obtenerPosts();
                 string contenido;
                 contenido = textBox2.Text;
-                miRed.Comentar(contenido, comentariosObtenidos[^1].ID);                
-                Comentario1.Text = comentariosObtenidos[^1].Contenido.ToString();
+                miRed.Comentar(contenido, postsObtenidos[^1].ID);                
+                Comentario1.Text = postsObtenidos[^1].Comentarios.Last().Contenido.ToString();
                 refreshVista();
             }
         }
@@ -146,9 +146,89 @@ namespace tp1_grupo6.Front
 
         }
 
+        // Eliminar Ultimo Post
         private void button7_Click_1(object sender, EventArgs e)
         {
-         
+            if (miRed.usuarioActual != null)
+            {
+                var postsObtenidos = miRed.obtenerPosts();
+                miRed.EliminarPost(postsObtenidos[^1].ID);
+                refreshVista();
+            }
+        }
+
+        // Comentar Segundo Post
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var postsObtenidos = miRed.obtenerPosts();
+                string contenido;
+                contenido = textBox6.Text;
+                miRed.Comentar(contenido, postsObtenidos[^2].ID);
+                Comentario2.Text = postsObtenidos[^2].Comentarios.Last().Contenido.ToString();
+                refreshVista();
+            }
+        }
+
+        // Comentar Tercer Post
+        private void button28_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var postsObtenidos = miRed.obtenerPosts();
+                string contenido;
+                contenido = textBox13.Text;
+                miRed.Comentar(contenido, postsObtenidos[^3].ID);
+                Comentario3.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
+                refreshVista();
+            }
+        }
+
+        // Comentar Cuarto Post
+        private void button22_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var postsObtenidos = miRed.obtenerPosts();
+                string contenido;
+                contenido = textBox9.Text;
+                miRed.Comentar(contenido, postsObtenidos[^3].ID);
+                Comentario4.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
+                refreshVista();
+            }
+        }
+
+        // Eliminar Segundo Post
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var postsObtenidos = miRed.obtenerPosts();
+                miRed.EliminarPost(postsObtenidos[^2].ID);
+                refreshVista();
+            }
+        }
+
+        // Eliminar Segundo Post
+        private void button27_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var postsObtenidos = miRed.obtenerPosts();
+                miRed.EliminarPost(postsObtenidos[^3].ID);
+                refreshVista();
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var postsObtenidos = miRed.obtenerPosts();
+                miRed.EliminarPost(postsObtenidos[^4].ID);
+                refreshVista();
+            }
         }
     }
 }
