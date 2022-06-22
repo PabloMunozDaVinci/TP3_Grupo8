@@ -193,8 +193,8 @@ namespace tp1_grupo6.Front
                 var postsObtenidos = miRed.obtenerPosts();
                 string contenido;
                 contenido = textBox9.Text;
-                miRed.Comentar(contenido, postsObtenidos[^3].ID);
-                Comentario4.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
+                miRed.Comentar(contenido, postsObtenidos[^4].ID);
+                Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
                 refreshVista();
             }
         }
@@ -229,6 +229,11 @@ namespace tp1_grupo6.Front
                 miRed.EliminarPost(postsObtenidos[^4].ID);
                 refreshVista();
             }
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -417,6 +417,7 @@ namespace tp1_grupo6.Front
             this.panel8.Controls.Add(this.button13);
             resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // textBox2
             // 
