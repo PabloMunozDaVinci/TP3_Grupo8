@@ -36,10 +36,12 @@ namespace tp1_grupo6.Front
                     post2.Text = postsObtenidos[^2].Contenido.ToString();
                     post3.Text = postsObtenidos[^3].Contenido.ToString();
                     post4.Text = postsObtenidos[^4].Contenido.ToString();
+                   /*
                     Comentario1.Text = postsObtenidos[^1].Comentarios.Last().Contenido.ToString();
                     Comentario2.Text = postsObtenidos[^2].Comentarios.Last().Contenido.ToString();
                     Comentario3.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
                     Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
+                   */
                 }
             }
 
@@ -227,6 +229,46 @@ namespace tp1_grupo6.Front
             {
                 var postsObtenidos = miRed.obtenerPosts();
                 miRed.EliminarPost(postsObtenidos[^4].ID);
+                refreshVista();
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^1].ID);
+                refreshVista();
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^2].ID);
+                refreshVista();
+            }
+    }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^3].ID);
+                refreshVista();
+            }
+    }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^4].ID);
                 refreshVista();
             }
         }

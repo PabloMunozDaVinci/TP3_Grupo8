@@ -332,6 +332,7 @@ namespace tp1_grupo6.Logica
                 {
                     foreach(Comentario c in p.Comentarios)
                     {
+
                         context.Comentarios.Remove(c);
                     }
                     context.Posts.Remove(p);
@@ -342,6 +343,28 @@ namespace tp1_grupo6.Logica
             {
                 context.SaveChanges();
             }                
+            return salida;
+        }
+
+
+        public bool EliminarComentario(int cID)
+        {
+            bool salida = false;
+            foreach (Comentario c in context.Comentarios)
+            
+                if (c.ID == cID)
+                {
+                    
+                        context.Comentarios.Remove(c);
+                 
+                    context.Comentarios.Remove(c);
+                    salida = true;
+                }
+           
+            if (salida)
+            {
+                context.SaveChanges();
+            }
             return salida;
         }
 
@@ -393,37 +416,7 @@ namespace tp1_grupo6.Logica
                 }
             }
         }
-        public void QuitarComentario(Post p, Comentario c)
-        {
-            {
-                if (posts.Count > 0)
-                {
-
-                    bool encontre = false;
-
-
-                    //registro el ID del post a guardar
-                    int id = 0;
-
-                    id = p.ID;
-
-
-
-                    foreach (Post postAux in posts)
-                    {
-
-                        if (postAux.ID == id)
-                        {
-                            encontre = true;
-
-
-                            //remuevo el ultimo Post dentro del pool de Posts 
-                            // postAux.Comentarios.Remove(postAux.Comentarios.Last());
-                        }
-
-                    }
-                }
-            }
+       
         }*/
 
         public List<Post> obtenerPosts()
