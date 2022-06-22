@@ -292,7 +292,7 @@ namespace tp1_grupo6.Logica
             }
         }
 
-
+        // Metodo para agregar un comentario
         public bool Comentar(String comentarioContenido, int postID)
         {
             try
@@ -322,25 +322,28 @@ namespace tp1_grupo6.Logica
             }
         }
 
+        // Elimina un post, y todos sus comentarios
         public bool EliminarPost(int pID)
         {
             bool salida = false; 
             foreach (Post p in context.Posts)
-            if (p.ID == pID)
             {
+                if (p.ID == pID)
+                {
+                    foreach(Comentario c in p.Comentarios)
+                    {
+                        context.Comentarios.Remove(c);
+                    }
                     context.Posts.Remove(p);
                     salida = true;
+                }
             }
             if (salida)
+            {
                 context.SaveChanges();
+            }                
             return salida;
-
-
-
         }
-
-
-
 
         /* no funciona
         public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
@@ -424,35 +427,32 @@ namespace tp1_grupo6.Logica
         }*/
 
         public List<Post> obtenerPosts()
-    {
-        return  context.Posts.ToList();
-    }
+        {
+            return  context.Posts.ToList();
+        }
 
-    public List<Comentario> obtenerComentarios()
-    {
-        return context.Comentarios.ToList();
+        public List<Comentario> obtenerComentarios()
+        {
+            return context.Comentarios.ToList();
 
-    }
+        }
 
-    public List<Reaccion> obtenerReacciones()
-    {
-        return context.Reacciones.ToList();
+        public List<Reaccion> obtenerReacciones()
+        {
+            return context.Reacciones.ToList();
+        }
 
-    }
+        public List<Tag> obtenerTags()
+        {
+            return context.Tags.ToList();
+        }
 
-    public List<Tag> obtenerTags()
-    {
-        return context.Tags.ToList();
+        public List<Usuario> obtenerUsuarios()
+        {
+            return context.Usuarios.ToList();
+        }
 
-    }
-
-    public List<Usuario> obtenerUsuarios()
-    {
-        return context.Usuarios.ToList();
-
-    }
-
-    public void Reaccionar(Post p, Reaccion r)
+        public void Reaccionar(Post p, Reaccion r)
         {
 
         }

@@ -35,8 +35,8 @@ namespace tp1_grupo6.Front
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.Comentario3 = new System.Windows.Forms.TextBox();
+            this.post3 = new System.Windows.Forms.TextBox();
             this.button26 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
@@ -46,8 +46,8 @@ namespace tp1_grupo6.Front
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.Comentario4 = new System.Windows.Forms.TextBox();
+            this.post4 = new System.Windows.Forms.TextBox();
             this.button19 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
@@ -57,8 +57,8 @@ namespace tp1_grupo6.Front
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.Comentario2 = new System.Windows.Forms.TextBox();
+            this.post2 = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -68,8 +68,8 @@ namespace tp1_grupo6.Front
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Comentario1 = new System.Windows.Forms.TextBox();
+            this.post1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -131,8 +131,8 @@ namespace tp1_grupo6.Front
             // panel12
             // 
             this.panel12.Controls.Add(this.textBox13);
-            this.panel12.Controls.Add(this.textBox14);
-            this.panel12.Controls.Add(this.textBox15);
+            this.panel12.Controls.Add(this.Comentario3);
+            this.panel12.Controls.Add(this.post3);
             this.panel12.Controls.Add(this.button26);
             this.panel12.Controls.Add(this.button27);
             this.panel12.Controls.Add(this.button28);
@@ -147,15 +147,15 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.textBox13, "textBox13");
             this.textBox13.Name = "textBox13";
             // 
-            // textBox14
+            // Comentario3
             // 
-            resources.ApplyResources(this.textBox14, "textBox14");
-            this.textBox14.Name = "textBox14";
+            resources.ApplyResources(this.Comentario3, "Comentario3");
+            this.Comentario3.Name = "Comentario3";
             // 
-            // textBox15
+            // post3
             // 
-            resources.ApplyResources(this.textBox15, "textBox15");
-            this.textBox15.Name = "textBox15";
+            resources.ApplyResources(this.post3, "post3");
+            this.post3.Name = "post3";
             // 
             // button26
             // 
@@ -174,6 +174,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button27, "button27");
             this.button27.Name = "button27";
             this.button27.UseVisualStyleBackColor = false;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // button28
             // 
@@ -183,6 +184,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button28, "button28");
             this.button28.Name = "button28";
             this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // button29
             // 
@@ -221,8 +223,8 @@ namespace tp1_grupo6.Front
             // panel10
             // 
             this.panel10.Controls.Add(this.textBox9);
-            this.panel10.Controls.Add(this.textBox11);
-            this.panel10.Controls.Add(this.textBox12);
+            this.panel10.Controls.Add(this.Comentario4);
+            this.panel10.Controls.Add(this.post4);
             this.panel10.Controls.Add(this.button19);
             this.panel10.Controls.Add(this.button21);
             this.panel10.Controls.Add(this.button22);
@@ -237,15 +239,15 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.textBox9, "textBox9");
             this.textBox9.Name = "textBox9";
             // 
-            // textBox11
+            // Comentario4
             // 
-            resources.ApplyResources(this.textBox11, "textBox11");
-            this.textBox11.Name = "textBox11";
+            resources.ApplyResources(this.Comentario4, "Comentario4");
+            this.Comentario4.Name = "Comentario4";
             // 
-            // textBox12
+            // post4
             // 
-            resources.ApplyResources(this.textBox12, "textBox12");
-            this.textBox12.Name = "textBox12";
+            resources.ApplyResources(this.post4, "post4");
+            this.post4.Name = "post4";
             // 
             // button19
             // 
@@ -264,6 +266,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button21, "button21");
             this.button21.Name = "button21";
             this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button22
             // 
@@ -273,6 +276,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button22, "button22");
             this.button22.Name = "button22";
             this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button23
             // 
@@ -311,8 +315,8 @@ namespace tp1_grupo6.Front
             // panel4
             // 
             this.panel4.Controls.Add(this.textBox6);
-            this.panel4.Controls.Add(this.textBox7);
-            this.panel4.Controls.Add(this.textBox8);
+            this.panel4.Controls.Add(this.Comentario2);
+            this.panel4.Controls.Add(this.post2);
             this.panel4.Controls.Add(this.button9);
             this.panel4.Controls.Add(this.button14);
             this.panel4.Controls.Add(this.button15);
@@ -327,15 +331,15 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.textBox6, "textBox6");
             this.textBox6.Name = "textBox6";
             // 
-            // textBox7
+            // Comentario2
             // 
-            resources.ApplyResources(this.textBox7, "textBox7");
-            this.textBox7.Name = "textBox7";
+            resources.ApplyResources(this.Comentario2, "Comentario2");
+            this.Comentario2.Name = "Comentario2";
             // 
-            // textBox8
+            // post2
             // 
-            resources.ApplyResources(this.textBox8, "textBox8");
-            this.textBox8.Name = "textBox8";
+            resources.ApplyResources(this.post2, "post2");
+            this.post2.Name = "post2";
             // 
             // button9
             // 
@@ -354,6 +358,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button14, "button14");
             this.button14.Name = "button14";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click_1);
             // 
             // button15
             // 
@@ -363,6 +368,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button15, "button15");
             this.button15.Name = "button15";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button16
             // 
@@ -401,8 +407,8 @@ namespace tp1_grupo6.Front
             // panel8
             // 
             this.panel8.Controls.Add(this.textBox2);
-            this.panel8.Controls.Add(this.textBox4);
-            this.panel8.Controls.Add(this.textBox5);
+            this.panel8.Controls.Add(this.Comentario1);
+            this.panel8.Controls.Add(this.post1);
             this.panel8.Controls.Add(this.button3);
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.button10);
@@ -417,16 +423,16 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
             // 
-            // textBox4
+            // Comentario1
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.Name = "textBox4";
+            resources.ApplyResources(this.Comentario1, "Comentario1");
+            this.Comentario1.Name = "Comentario1";
             // 
-            // textBox5
+            // post1
             // 
-            resources.ApplyResources(this.textBox5, "textBox5");
-            this.textBox5.Name = "textBox5";
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            resources.ApplyResources(this.post1, "post1");
+            this.post1.Name = "post1";
+            this.post1.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // button3
             // 
@@ -661,8 +667,8 @@ namespace tp1_grupo6.Front
         private Panel panel11;
         private Panel panel12;
         private TextBox textBox13;
-        private TextBox textBox14;
-        private TextBox textBox15;
+        private TextBox Comentario3;
+        private TextBox post3;
         private Button button26;
         private Button button27;
         private Button button28;
@@ -672,8 +678,8 @@ namespace tp1_grupo6.Front
         private Panel panel9;
         private Panel panel10;
         private TextBox textBox9;
-        private TextBox textBox11;
-        private TextBox textBox12;
+        private TextBox Comentario4;
+        private TextBox post4;
         private Button button19;
         private Button button21;
         private Button button22;
@@ -683,8 +689,8 @@ namespace tp1_grupo6.Front
         private Panel panel3;
         private Panel panel4;
         private TextBox textBox6;
-        private TextBox textBox7;
-        private TextBox textBox8;
+        private TextBox Comentario2;
+        private TextBox post2;
         private Button button9;
         private Button button14;
         private Button button15;
@@ -694,8 +700,8 @@ namespace tp1_grupo6.Front
         private Panel panel7;
         private Panel panel8;
         private TextBox textBox2;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox Comentario1;
+        private TextBox post1;
         private Button button3;
         private Button button7;
         private Button button10;

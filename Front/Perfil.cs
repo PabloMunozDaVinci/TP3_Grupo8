@@ -13,22 +13,16 @@ namespace tp1_grupo6.Front
     public partial class Perfil : Form
     {
         private RedSocial miRed;
-        private Usuario usuario;
-        public Perfil(RedSocial miRed, Usuario usuario)
+
+        public Perfil(RedSocial miRed)
         {
             this.miRed = miRed;
-            this.usuario = usuario;
+
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-
-
-
-
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

@@ -83,52 +83,52 @@
   <data name="&gt;&gt;textBox13.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBox14.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Comentario3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 108</value>
   </data>
-  <data name="textBox14.Multiline" type="System.Boolean, mscorlib">
+  <data name="Comentario3.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox14.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Comentario3.Size" type="System.Drawing.Size, System.Drawing">
     <value>454, 61</value>
   </data>
-  <data name="textBox14.TabIndex" type="System.Int32, mscorlib">
+  <data name="Comentario3.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="&gt;&gt;textBox14.Name" xml:space="preserve">
-    <value>textBox14</value>
+  <data name="&gt;&gt;Comentario3.Name" xml:space="preserve">
+    <value>Comentario3</value>
   </data>
-  <data name="&gt;&gt;textBox14.Type" xml:space="preserve">
+  <data name="&gt;&gt;Comentario3.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox14.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Comentario3.Parent" xml:space="preserve">
     <value>panel12</value>
   </data>
-  <data name="&gt;&gt;textBox14.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Comentario3.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="textBox15.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="post3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 3</value>
   </data>
-  <data name="textBox15.Multiline" type="System.Boolean, mscorlib">
+  <data name="post3.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox15.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="post3.Size" type="System.Drawing.Size, System.Drawing">
     <value>462, 60</value>
   </data>
-  <data name="textBox15.TabIndex" type="System.Int32, mscorlib">
+  <data name="post3.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;textBox15.Name" xml:space="preserve">
-    <value>textBox15</value>
+  <data name="&gt;&gt;post3.Name" xml:space="preserve">
+    <value>post3</value>
   </data>
-  <data name="&gt;&gt;textBox15.Type" xml:space="preserve">
+  <data name="&gt;&gt;post3.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox15.Parent" xml:space="preserve">
+  <data name="&gt;&gt;post3.Parent" xml:space="preserve">
     <value>panel12</value>
   </data>
-  <data name="&gt;&gt;textBox15.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;post3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -360,52 +360,52 @@
   <data name="&gt;&gt;textBox9.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBox11.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Comentario4.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 108</value>
   </data>
-  <data name="textBox11.Multiline" type="System.Boolean, mscorlib">
+  <data name="Comentario4.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox11.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Comentario4.Size" type="System.Drawing.Size, System.Drawing">
     <value>454, 61</value>
   </data>
-  <data name="textBox11.TabIndex" type="System.Int32, mscorlib">
+  <data name="Comentario4.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="&gt;&gt;textBox11.Name" xml:space="preserve">
-    <value>textBox11</value>
+  <data name="&gt;&gt;Comentario4.Name" xml:space="preserve">
+    <value>Comentario4</value>
   </data>
-  <data name="&gt;&gt;textBox11.Type" xml:space="preserve">
+  <data name="&gt;&gt;Comentario4.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox11.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Comentario4.Parent" xml:space="preserve">
     <value>panel10</value>
   </data>
-  <data name="&gt;&gt;textBox11.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Comentario4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="textBox12.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="post4.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 3</value>
   </data>
-  <data name="textBox12.Multiline" type="System.Boolean, mscorlib">
+  <data name="post4.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox12.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="post4.Size" type="System.Drawing.Size, System.Drawing">
     <value>462, 60</value>
   </data>
-  <data name="textBox12.TabIndex" type="System.Int32, mscorlib">
+  <data name="post4.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;textBox12.Name" xml:space="preserve">
-    <value>textBox12</value>
+  <data name="&gt;&gt;post4.Name" xml:space="preserve">
+    <value>post4</value>
   </data>
-  <data name="&gt;&gt;textBox12.Type" xml:space="preserve">
+  <data name="&gt;&gt;post4.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox12.Parent" xml:space="preserve">
+  <data name="&gt;&gt;post4.Parent" xml:space="preserve">
     <value>panel10</value>
   </data>
-  <data name="&gt;&gt;textBox12.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;post4.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="button19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -636,52 +636,52 @@
   <data name="&gt;&gt;textBox6.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBox7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Comentario2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 108</value>
   </data>
-  <data name="textBox7.Multiline" type="System.Boolean, mscorlib">
+  <data name="Comentario2.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Comentario2.Size" type="System.Drawing.Size, System.Drawing">
     <value>454, 61</value>
   </data>
-  <data name="textBox7.TabIndex" type="System.Int32, mscorlib">
+  <data name="Comentario2.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="&gt;&gt;textBox7.Name" xml:space="preserve">
-    <value>textBox7</value>
+  <data name="&gt;&gt;Comentario2.Name" xml:space="preserve">
+    <value>Comentario2</value>
   </data>
-  <data name="&gt;&gt;textBox7.Type" xml:space="preserve">
+  <data name="&gt;&gt;Comentario2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Comentario2.Parent" xml:space="preserve">
     <value>panel4</value>
   </data>
-  <data name="&gt;&gt;textBox7.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Comentario2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="textBox8.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="post2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 3</value>
   </data>
-  <data name="textBox8.Multiline" type="System.Boolean, mscorlib">
+  <data name="post2.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox8.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="post2.Size" type="System.Drawing.Size, System.Drawing">
     <value>462, 60</value>
   </data>
-  <data name="textBox8.TabIndex" type="System.Int32, mscorlib">
+  <data name="post2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;textBox8.Name" xml:space="preserve">
-    <value>textBox8</value>
+  <data name="&gt;&gt;post2.Name" xml:space="preserve">
+    <value>post2</value>
   </data>
-  <data name="&gt;&gt;textBox8.Type" xml:space="preserve">
+  <data name="&gt;&gt;post2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox8.Parent" xml:space="preserve">
+  <data name="&gt;&gt;post2.Parent" xml:space="preserve">
     <value>panel4</value>
   </data>
-  <data name="&gt;&gt;textBox8.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;post2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="button9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -912,52 +912,52 @@
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Comentario1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 108</value>
   </data>
-  <data name="textBox4.Multiline" type="System.Boolean, mscorlib">
+  <data name="Comentario1.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Comentario1.Size" type="System.Drawing.Size, System.Drawing">
     <value>454, 61</value>
   </data>
-  <data name="textBox4.TabIndex" type="System.Int32, mscorlib">
+  <data name="Comentario1.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="&gt;&gt;textBox4.Name" xml:space="preserve">
-    <value>textBox4</value>
+  <data name="&gt;&gt;Comentario1.Name" xml:space="preserve">
+    <value>Comentario1</value>
   </data>
-  <data name="&gt;&gt;textBox4.Type" xml:space="preserve">
+  <data name="&gt;&gt;Comentario1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Comentario1.Parent" xml:space="preserve">
     <value>panel8</value>
   </data>
-  <data name="&gt;&gt;textBox4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Comentario1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="textBox5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="post1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 3</value>
   </data>
-  <data name="textBox5.Multiline" type="System.Boolean, mscorlib">
+  <data name="post1.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="post1.Size" type="System.Drawing.Size, System.Drawing">
     <value>462, 60</value>
   </data>
-  <data name="textBox5.TabIndex" type="System.Int32, mscorlib">
+  <data name="post1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;textBox5.Name" xml:space="preserve">
-    <value>textBox5</value>
+  <data name="&gt;&gt;post1.Name" xml:space="preserve">
+    <value>post1</value>
   </data>
-  <data name="&gt;&gt;textBox5.Type" xml:space="preserve">
+  <data name="&gt;&gt;post1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;post1.Parent" xml:space="preserve">
     <value>panel8</value>
   </data>
-  <data name="&gt;&gt;textBox5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;post1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
