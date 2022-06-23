@@ -367,7 +367,7 @@ namespace tp1_grupo6.Logica
             }
             return salida;
         }
-
+        //
         /* no funciona
         public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
         {
