@@ -389,28 +389,24 @@ namespace tp1_grupo6.Logica
                 return salida;
             
         }
-        public void ModificarComentario(string contenido)
+        public bool ModificarComentario(int cID,string cContenido)
         {
-            if (posts.Count > 0)
-            {
-                bool encontre = false;
-                //registro el ID del post a guardar
-                int id = 0;
-                id = p.ID;
-                foreach (Post postAux in posts)
+            bool salida = false;
+            foreach (Comentario c in context.Comentarios)
+
+                if (c.ID == cID)
                 {
-                    if (postAux.ID == id)
-                    {
-                        encontre = true;
-                        //remuevo el ultimo comentario dentro del pool de comentarios del usuario actual
-                        //usuarioActual.MisComentarios.Remove(usuarioActual.MisComentarios.Last());
-                        //remuevo el ultimo Post dentro del pool de Posts 
-                        //postAux.Comentarios.Remove(postAux.Comentarios.Last());
-                        //al usuario actual le agrego a su lista el comentario que realizó
-                        postAux.Comentarios.Add(c);
-                    }
+
+                    c.Contenido = cContenido;
+                    c.Fecha = now;
+                    context.Update(c);
+
+
+                    salida = true;
                 }
-            }
+            if (salida)
+                context.SaveChanges();
+            return salida;
         }
 
         /*

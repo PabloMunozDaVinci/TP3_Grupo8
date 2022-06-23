@@ -344,10 +344,10 @@ namespace tp1_grupo6.Front
             String contenido = null;
             contenido = textBox2.Text;
 
-            var postObtenidos = miRed.obtenerPosts();
-            miRed.ModificarPost(postObtenidos[^1].ID, contenido);
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^1].ID, contenido);
 
-            Comentario1.Text = postObtenidos[^1].Contenido;
+            Comentario1.Text = comentariosObtenidos[^1].Contenido;
 
 
             refreshVista();
@@ -360,10 +360,10 @@ namespace tp1_grupo6.Front
             String contenido = null;
             contenido = textBox6.Text;
 
-            var postObtenidos = miRed.obtenerPosts();
-            miRed.ModificarPost(postObtenidos[^2].ID, contenido);
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^2].ID, contenido);
 
-            Comentario2.Text = postObtenidos[^2].Contenido;
+            Comentario2.Text = comentariosObtenidos[^2].Contenido;
 
 
             refreshVista();
@@ -378,19 +378,16 @@ namespace tp1_grupo6.Front
         //modificar comentario 3
         private void button26_Click(object sender, EventArgs e)
         {
-
-
             String contenido = null;
             contenido = textBox13.Text;
 
-            var postObtenidos = miRed.obtenerPosts();
-            miRed.ModificarPost(postObtenidos[^3].ID, contenido);
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^3].ID, contenido);
 
-            Comentario3.Text = postObtenidos[^3].Contenido;
+            Comentario3.Text = comentariosObtenidos[^3].Contenido;
 
 
             refreshVista();
-
 
         }
         //modificar comentario 4
@@ -401,10 +398,10 @@ namespace tp1_grupo6.Front
             String contenido = null;
             contenido = textBox9.Text;
 
-            var postObtenidos = miRed.obtenerPosts();
-            miRed.ModificarPost(postObtenidos[^4].ID, contenido);
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^4].ID, contenido);
 
-            Comentario4.Text = postObtenidos[^4].Contenido;
+            Comentario4.Text = comentariosObtenidos[^4].Contenido;
 
 
             refreshVista();
