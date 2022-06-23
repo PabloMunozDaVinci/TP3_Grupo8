@@ -227,6 +227,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button31, "button31");
             this.button31.Name = "button31";
             this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // panel9
             // 
@@ -330,6 +331,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button25, "button25");
             this.button25.Name = "button25";
             this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // panel3
             // 
@@ -433,6 +435,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button18, "button18");
             this.button18.Name = "button18";
             this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // panel7
             // 
@@ -537,6 +540,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button13, "button13");
             this.button13.Name = "button13";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // textBox10
             // 

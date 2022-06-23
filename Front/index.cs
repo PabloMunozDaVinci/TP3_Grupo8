@@ -272,5 +272,70 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
         }
+
+
+
+       
+        //Modificar Post 1
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+            String contenido=null;
+            contenido = textBox2.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^1].ID,contenido);
+
+            post1.Text = postObtenidos[^1].Contenido;
+            refreshVista();
+        }
+
+
+
+        //Modificar Post 2
+        private void button18_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox6.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^2].ID, contenido);
+
+            post2.Text = postObtenidos[^2].Contenido;
+
+
+            refreshVista();
+        }
+
+        //Modificar Post 3
+        private void button31_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox13.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^3].ID, contenido);
+
+            post3.Text = postObtenidos[^3].Contenido;
+
+
+            refreshVista();
+        }
+
+        //Modificar Post 4
+        private void button25_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox9.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^4].ID, contenido);
+
+            post4.Text = postObtenidos[^4].Contenido;
+
+
+            refreshVista();
+        }
+
     }
 }

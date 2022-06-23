@@ -13,6 +13,7 @@ namespace tp1_grupo6.Logica
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
         private Context context;
+            DateTime now = DateTime.Now;
         public Usuario usuarioActual { get; set; }
         public RedSocial()
         {
@@ -367,30 +368,32 @@ namespace tp1_grupo6.Logica
             }
             return salida;
         }
-        //
-        /* no funciona
-        public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
+        public bool ModificarPost(int pID, string pContenido)
         {
-            foreach (Post post in posts)
-            {
+            bool salida = false;
+            foreach (Post post in context.Posts)
+            
                 if (post.ID == pID)
                 {
-                    //post.Usuario = pUsuario;
+                 
                     post.Contenido = pContenido;
-                    post.Comentarios = pComentarios;
-                    post.Reacciones = pReacciones;
-                    post.Tags = pTags;
-                    //post.Fecha = pFecha;
+                
+                    post.Fecha = now;
+                    context.Update(post);
+                    
 
+                    salida = true;
                 }
-            }
+                if (salida)
+                    context.SaveChanges();
+                return salida;
+            
         }
 
-        // no hecho
-       
 
+        /*
         // no funciona
-       
+
 
         // no funciona
         public void ModificarComentario(Post p, Comentario c)
