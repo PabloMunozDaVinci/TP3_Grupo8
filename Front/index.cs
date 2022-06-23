@@ -148,7 +148,7 @@ namespace tp1_grupo6.Front
 
         }
 
-        // Eliminar Ultimo Post
+        // Eliminar Ultimo Post agregado
         private void button7_Click_1(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -212,7 +212,7 @@ namespace tp1_grupo6.Front
             }
         }
 
-        // Eliminar Segundo Post
+        // Eliminar tercer Post
         private void button27_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -222,7 +222,7 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
         }
-
+        //Eliminar cuarto Post
         private void button21_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -232,7 +232,7 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
         }
-
+        //Eliminar Ultimo comentario agregado
         private void button32_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -242,7 +242,7 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
         }
-
+        //Eliminar segundo comentario
         private void button33_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -252,7 +252,7 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
     }
-
+        //Eliminar tercer comentario
         private void button34_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -262,7 +262,7 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
     }
-
+        //Eliminar cuarto comentario
         private void button35_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)

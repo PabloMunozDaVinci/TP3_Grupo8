@@ -356,7 +356,7 @@ namespace tp1_grupo6.Logica
                 if (c.ID == cID)
                 {
                     
-                        context.Comentarios.Remove(c);
+                    context.Comentarios.Remove(c);
                  
                     context.Comentarios.Remove(c);
                     salida = true;
