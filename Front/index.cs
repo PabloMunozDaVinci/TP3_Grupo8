@@ -29,6 +29,9 @@ namespace tp1_grupo6.Front
             {
                 textBox1.Text = "";
                 textBox2.Text = "";
+                textBox13.Text = "";
+                textBox9.Text = "";
+                textBox6.Text = "";
                 if (post1 != null || post2 != null || post3 != null || post4 != null
                 || Comentario1 != null || Comentario2 != null || Comentario3 != null || Comentario4 != null)
                 {
