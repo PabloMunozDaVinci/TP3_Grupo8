@@ -389,14 +389,7 @@ namespace tp1_grupo6.Logica
                 return salida;
             
         }
-
-
-        /*
-        // no funciona
-
-
-        // no funciona
-        public void ModificarComentario(Post p, Comentario c)
+        public void ModificarComentario(string contenido)
         {
             if (posts.Count > 0)
             {
@@ -419,7 +412,15 @@ namespace tp1_grupo6.Logica
                 }
             }
         }
-       
+
+        /*
+        // no funciona
+
+
+        // no funciona
+
+        }
+
         }*/
 
         public List<Post> obtenerPosts()

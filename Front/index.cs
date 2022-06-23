@@ -99,7 +99,7 @@ namespace tp1_grupo6.Front
         {
 
         }
-
+        // Realizar Post " que estas pensando " 
         private void button2_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -283,8 +283,8 @@ namespace tp1_grupo6.Front
             String contenido=null;
             contenido = textBox2.Text;
 
-            var postObtenidos = miRed.obtenerPosts();
-            miRed.ModificarPost(postObtenidos[^1].ID,contenido);
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^1].ID,contenido);
 
             post1.Text = postObtenidos[^1].Contenido;
             refreshVista();
@@ -336,6 +336,79 @@ namespace tp1_grupo6.Front
 
             refreshVista();
         }
+        //modificar Comentario 1
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+                
+            String contenido = null;
+            contenido = textBox2.Text;
 
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^1].ID, contenido);
+
+            Comentario1.Text = postObtenidos[^1].Contenido;
+
+
+            refreshVista();
+        }
+
+        //modificar comentario 2
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+            String contenido = null;
+            contenido = textBox6.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^2].ID, contenido);
+
+            Comentario2.Text = postObtenidos[^2].Contenido;
+
+
+            refreshVista();
+
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        //modificar comentario 3
+        private void button26_Click(object sender, EventArgs e)
+        {
+
+
+            String contenido = null;
+            contenido = textBox13.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^3].ID, contenido);
+
+            Comentario3.Text = postObtenidos[^3].Contenido;
+
+
+            refreshVista();
+
+
+        }
+        //modificar comentario 4
+        private void button19_Click(object sender, EventArgs e)
+        {
+
+
+            String contenido = null;
+            contenido = textBox9.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^4].ID, contenido);
+
+            Comentario4.Text = postObtenidos[^4].Contenido;
+
+
+            refreshVista();
+
+        }
     }
 }
