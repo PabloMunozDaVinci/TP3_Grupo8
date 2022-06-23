@@ -283,8 +283,8 @@ namespace tp1_grupo6.Front
             String contenido=null;
             contenido = textBox2.Text;
 
-            var comentariosObtenidos = miRed.obtenerComentarios();
-            miRed.ModificarComentario(comentariosObtenidos[^1].ID,contenido);
+            var postObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(postObtenidos[^1].ID,contenido);
 
             post1.Text = postObtenidos[^1].Contenido;
             refreshVista();
