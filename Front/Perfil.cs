@@ -26,7 +26,10 @@ namespace tp1_grupo6.Front
 
         private void button1_Click(object sender, EventArgs e)
         {
+            miRed.CerrarSesion();
+            Form login = new Login();
             this.Dispose();
+            login.ShowDialog();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -62,15 +65,14 @@ namespace tp1_grupo6.Front
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form index = new Index(miRed);
-            this.Hide();
+            Form index = new Index(this.miRed);
+            this.Dispose();
             index.ShowDialog();
-            this.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Form amigos = new Amigos(miRed);
+            Form amigos = new Amigos(this.miRed);
             this.Hide();
             amigos.ShowDialog();
             this.Show();
