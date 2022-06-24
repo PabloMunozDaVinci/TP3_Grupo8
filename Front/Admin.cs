@@ -76,6 +76,14 @@ namespace tp1_grupo6.Front
 
         }
 
- 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            miRed.CerrarSesion();
+            Form login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Show();
+            Dispose();
+        }
     }
 }

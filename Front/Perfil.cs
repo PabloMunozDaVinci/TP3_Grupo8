@@ -23,6 +23,10 @@ namespace tp1_grupo6.Front
 
         private void button1_Click(object sender, EventArgs e)
         {
+            miRed.CerrarSesion();
+            Form login = new Login();
+            this.Dispose();
+            login.ShowDialog();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -54,6 +58,20 @@ namespace tp1_grupo6.Front
             login.ShowDialog();
             this.Show();
             Dispose();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form amigos = new Amigos(this.miRed);
+            this.Dispose();
+            amigos.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form home = new Index(this.miRed);
+            this.Dispose();
+            home.ShowDialog();
         }
     }
 }
