@@ -48,7 +48,6 @@ namespace tp1_grupo6.Front
                    */
                 }
             }
-
         }
 
         private void index_Load(object sender, EventArgs e)
@@ -199,8 +198,8 @@ namespace tp1_grupo6.Front
                 var postsObtenidos = miRed.obtenerPosts();
                 string contenido;
                 contenido = textBox9.Text;
-                miRed.Comentar(contenido, postsObtenidos[^3].ID);
-                Comentario4.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
+                miRed.Comentar(contenido, postsObtenidos[^4].ID);
+                Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
                 refreshVista();
             }
         }
@@ -236,6 +235,7 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
         }
+
         //Eliminar Ultimo comentario agregado
         private void button32_Click(object sender, EventArgs e)
         {
@@ -421,6 +421,20 @@ namespace tp1_grupo6.Front
             
 
 
+
+
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form amigos = new Amigos(this.miRed);
+            this.Hide();
+            amigos.ShowDialog();
+            this.Show();
 
         }
     }

@@ -426,6 +426,7 @@ namespace tp1_grupo6.Front
             this.panel8.Controls.Add(this.button13);
             resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // button32
             // 
@@ -593,6 +594,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button5, "button5");
             this.button5.Name = "button5";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 

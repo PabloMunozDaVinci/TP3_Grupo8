@@ -242,15 +242,27 @@ namespace tp1_grupo6.Logica
         }
 
         // no se si funciona
-        public void AgregarAmigo(Usuario amigo)
+        public bool AgregarAmigo(string mailAmigo)
         {
-            if (usuarioActual != null)
+            bool salida = false;
+            foreach (Usuario a in context.Usuarios)
             {
-
-                //usuarioActual.Amigos.Add(amigo);
-
+                if (a.Mail.Equals(mailAmigo))
+                {
+                    UsuarioAmigo am1 = new UsuarioAmigo(usuarioActual, a);
+                    UsuarioAmigo am2 = new UsuarioAmigo(a, usuarioActual);
+                    usuarioActual.MisAmigos.Add(am1);
+                    usuarioActual.AmigosMios.Add(am2);
+                    salida = true;
+                }                          
+            }
+            if (salida)
+            {
+                context.SaveChanges();
+                return salida;
             }
 
+            return salida;
         }
 
         // no funciona
