@@ -19,7 +19,17 @@ namespace tp1_grupo6.Front
             var User = miRed.usuarioActual.Nombre + " " + miRed.usuarioActual.Apellido;
             label3.Text= User.ToUpper();
             this.miRed = miRed;
-           
+            refreshVista();
+
+
+        }
+
+        private void refreshVista()
+        {
+            foreach (UsuarioAmigo amigos in miRed.usuarioActual.MisAmigos)
+            {
+                dataGridView1.Rows.Add(amigos.Amigo.toArray());               
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -74,10 +84,9 @@ namespace tp1_grupo6.Front
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form index = new Index(this.miRed);
-            this.Hide();
-            index.ShowDialog();
-            this.Show();
+            Form home = new Index(this.miRed);
+            this.Dispose();
+            home.ShowDialog();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -160,18 +169,24 @@ namespace tp1_grupo6.Front
         private void button6_Click(object sender, EventArgs e)
         {
             Form perfil = new Perfil(this.miRed);
-            this.Hide();
+            this.Dispose();
             perfil.ShowDialog();
-            this.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            miRed.CerrarSesion();
+            Form login = new Login();
             this.Dispose();
+            login.ShowDialog();
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

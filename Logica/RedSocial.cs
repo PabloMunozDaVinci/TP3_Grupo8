@@ -64,6 +64,12 @@ namespace tp1_grupo6.Logica
             }
         }
 
+        public bool Cerrar()
+        {
+            context.Dispose();
+            return true;
+        }
+
         private string Hashear(string contraseñaSinHashear)
         {
             try

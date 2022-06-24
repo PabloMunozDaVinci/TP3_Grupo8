@@ -86,7 +86,16 @@ namespace tp1_grupo6
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            try
+            {
+                if (miRed.Cerrar())
+                {
+                    Dispose();
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void Registrar_Click(object sender, EventArgs e)

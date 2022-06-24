@@ -65,12 +65,18 @@ namespace tp1_grupo6.Front
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            Form perfil = new Perfil(this.miRed);
+            this.Dispose();
+            perfil.ShowDialog();
         }
 
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            miRed.CerrarSesion();
+            Form login = new Login();
             this.Dispose();
+            login.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -80,10 +86,7 @@ namespace tp1_grupo6.Front
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Form perfil = new Perfil(this.miRed);
-            this.Hide();
-            perfil.ShowDialog();
-            this.Show();
+          
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -515,26 +518,22 @@ namespace tp1_grupo6.Front
         private void button5_Click(object sender, EventArgs e)
         {
             Form amigos = new Amigos(this.miRed);
-            this.Hide();
+            this.Dispose();
             amigos.ShowDialog();
-            this.Show();
 
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-    
-
-            Form perfil = new Perfil(miRed);
-            this.Hide();
+            Form perfil = new Perfil(this.miRed);
+            this.Dispose();
             perfil.ShowDialog();
-            this.Show();
-           
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            refreshVista();
         }
 
         private void button11_Click_1(object sender, EventArgs e)
