@@ -39,17 +39,21 @@ namespace tp1_grupo6.Front
                 if (post1 != null || post2 != null || post3 != null || post4 != null
                 || Comentario1 != null || Comentario2 != null || Comentario3 != null || Comentario4 != null)
                 {
-                    post1.Text = postsObtenidos[^1].Contenido.ToString();
-                    post2.Text = postsObtenidos[^2].Contenido.ToString();
-                    post3.Text = postsObtenidos[^3].Contenido.ToString();
-                    post4.Text = postsObtenidos[^4].Contenido.ToString();
-                  
-                    /*
-                    Comentario1.Text = postsObtenidos[^1].Comentarios.Last().Contenido.ToString();
-                    Comentario2.Text = postsObtenidos[^2].Comentarios.Last().Contenido.ToString();
-                    Comentario3.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
-                    Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
-                   */
+                    post1.Text = postsObtenidos[^1].Contenido.LastOrDefault().ToString();
+                    post2.Text = postsObtenidos[^2].Contenido.LastOrDefault().ToString();
+                    post3.Text = postsObtenidos[^3].Contenido.LastOrDefault().ToString();
+                    post4.Text = postsObtenidos[^4].Contenido.LastOrDefault().ToString();
+
+
+                    try { 
+
+                    Comentario1.Text = postsObtenidos[^1].Comentarios.LastOrDefault()?.Contenido.ToString();
+                    Comentario2.Text = postsObtenidos[^2].Comentarios.LastOrDefault()?.Contenido.ToString();
+                    Comentario3.Text = postsObtenidos[^3].Comentarios.LastOrDefault()?.Contenido.ToString();
+                    Comentario4.Text = postsObtenidos[^4].Comentarios.LastOrDefault()?.Contenido.ToString();
+                    }
+
+                    catch (Exception e){ }
                 }
             }
         }
@@ -234,8 +238,16 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var postsObtenidos = miRed.obtenerPosts();
-                miRed.EliminarPost(postsObtenidos[^2].ID);
-                refreshVista();
+                if (miRed.EliminarPost(postsObtenidos[^2].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Post");
+
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el post");
+                }
             }
         }
 
@@ -245,8 +257,16 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var postsObtenidos = miRed.obtenerPosts();
-                miRed.EliminarPost(postsObtenidos[^3].ID);
-                refreshVista();
+                if (miRed.EliminarPost(postsObtenidos[^3].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Post");
+
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el post");
+                }
             }
         }
         //Eliminar cuarto Post
@@ -255,8 +275,16 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var postsObtenidos = miRed.obtenerPosts();
-                miRed.EliminarPost(postsObtenidos[^4].ID);
-                refreshVista();
+                if (miRed.EliminarPost(postsObtenidos[^4].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Post");
+
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el post");
+                }
             }
         }
 
@@ -266,8 +294,18 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var comentariosObtenidos = miRed.obtenerComentarios();
-                miRed.EliminarComentario(comentariosObtenidos[^1].ID);
-                refreshVista();
+
+
+               if(miRed.EliminarComentario(comentariosObtenidos[^1].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Comentario");
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el Comentario");
+                }
+              
             }
         }
         //Eliminar segundo comentario
@@ -276,8 +314,15 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var comentariosObtenidos = miRed.obtenerComentarios();
-                miRed.EliminarComentario(comentariosObtenidos[^2].ID);
-                refreshVista();
+                if (miRed.EliminarComentario(comentariosObtenidos[^2].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Comentario");
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el Comentario");
+                }
             }
     }
         //Eliminar tercer comentario
@@ -286,8 +331,15 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var comentariosObtenidos = miRed.obtenerComentarios();
-                miRed.EliminarComentario(comentariosObtenidos[^3].ID);
-                refreshVista();
+                if (miRed.EliminarComentario(comentariosObtenidos[^3].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Comentario");
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el Comentario");
+                }
             }
     }
         //Eliminar cuarto comentario
@@ -296,8 +348,15 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var comentariosObtenidos = miRed.obtenerComentarios();
-                miRed.EliminarComentario(comentariosObtenidos[^4].ID);
-                refreshVista();
+                if (miRed.EliminarComentario(comentariosObtenidos[^4].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Comentario");
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el Comentario");
+                }
             }
         }
 
@@ -474,6 +533,11 @@ namespace tp1_grupo6.Front
         }
 
         private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
         {
 
         }
