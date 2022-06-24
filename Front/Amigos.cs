@@ -19,7 +19,17 @@ namespace tp1_grupo6.Front
             var User = miRed.usuarioActual.Nombre + " " + miRed.usuarioActual.Apellido;
             label3.Text= User.ToUpper();
             this.miRed = miRed;
-           
+            refreshVista();
+
+
+        }
+
+        private void refreshVista()
+        {
+            foreach (UsuarioAmigo amigos in miRed.usuarioActual.MisAmigos)
+            {
+                dataGridView1.Rows.Add(amigos.Amigo.toArray());               
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -172,6 +182,11 @@ namespace tp1_grupo6.Front
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
