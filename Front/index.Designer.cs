@@ -90,6 +90,7 @@ namespace tp1_grupo6.Front
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -319,6 +320,7 @@ namespace tp1_grupo6.Front
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.textBox4);
             this.panel4.Controls.Add(this.button33);
             this.panel4.Controls.Add(this.textBox6);
             this.panel4.Controls.Add(this.Comentario2);
@@ -619,6 +621,11 @@ namespace tp1_grupo6.Front
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
+            // textBox4
+            // 
+            resources.ApplyResources(this.textBox4, "textBox4");
+            this.textBox4.Name = "textBox4";
+            // 
             // Index
             // 
             resources.ApplyResources(this, "$this");
@@ -718,5 +725,6 @@ namespace tp1_grupo6.Front
         private Button button34;
         private Button button35;
         private LinkLabel linkLabel1;
+        private TextBox textBox4;
     }
 }
