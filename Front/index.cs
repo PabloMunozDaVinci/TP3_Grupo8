@@ -39,7 +39,7 @@ namespace tp1_grupo6.Front
                 if (post1 != null || post2 != null || post3 != null || post4 != null
                 || Comentario1 != null || Comentario2 != null || Comentario3 != null || Comentario4 != null)
                 {
-                    post1.Text = postsObtenidos[^1].Contenido.LastOrDefault().ToString();
+                    post1.Text = postsObtenidos[^1].Contenido.FirstOrDefault().ToString();
                     post2.Text = postsObtenidos[^2].Contenido.LastOrDefault().ToString();
                     post3.Text = postsObtenidos[^3].Contenido.LastOrDefault().ToString();
                     post4.Text = postsObtenidos[^4].Contenido.LastOrDefault().ToString();
@@ -502,6 +502,11 @@ namespace tp1_grupo6.Front
         {
             String contenido = null;
             contenido = textBox10.Text;
+
+            var postObtenido= miRed.obtenerPostPorContenido(contenido);
+
+
+            textBox4.Text = postObtenido[^1].Contenido.ToString();
         }
 
             

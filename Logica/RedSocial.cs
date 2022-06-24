@@ -358,11 +358,11 @@ namespace tp1_grupo6.Logica
             {
                 if (p.ID == pID)
                 {
-                    foreach(Comentario c in p.Comentarios)
-                    {
+                    //foreach(Comentario c in p.Comentarios)
+                    //{
 
-                        context.Comentarios.Remove(c);
-                    }
+                    //    context.Comentarios.Remove(c);
+                    //}
                     context.Posts.Remove(p);
                     salida = true;
                 }
@@ -434,18 +434,19 @@ namespace tp1_grupo6.Logica
             return salida;
         }
 
-        //public string obtenerPostContenido(string Contenido)
-        //{
+        public List<Post> obtenerPostPorContenido(string Contenido)
+        {
 
-        //    //string salida = null;
-        //    //var query = from Posts in context.Posts
-        //    //            where ( Post.Contenido=>DbFunctions.Like
-        //    //           select Post;
-
-
-
-        //    //return salida;
-        //}
+            List<Post> salida = new List<Post>();
+            
+            var query = context.Posts.Where(p => p.Contenido.Contains(Contenido));
+          //var query = context.Posts.Where(p => EF.Functions.Like(p.Contenido,"%"+Contenido+"%"));
+          //  var query = context.Posts.Where(p => EF.Functions.Like(p.Contenido, "[" + Contenido + "]%"));
+            foreach (Post p in query)
+                salida.Add(p);
+                    
+            return salida;
+        }
 
         public List<Post> obtenerPosts()
         {
