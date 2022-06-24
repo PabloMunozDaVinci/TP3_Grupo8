@@ -295,6 +295,11 @@ namespace tp1_grupo6.Logica
                     context.SaveChanges();
 
                     return true;
+
+
+
+
+
                 }
                 else
                     return false;
@@ -338,6 +343,10 @@ namespace tp1_grupo6.Logica
         // Elimina un post, y todos sus comentarios
         public bool EliminarPost(int pID)
         {
+
+
+
+
             bool salida = false; 
             foreach (Post p in context.Posts)
             {

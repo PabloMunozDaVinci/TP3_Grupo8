@@ -73,7 +73,7 @@ namespace tp1_grupo6.Logica
                 .HasOne(C => C.Usuario)
                 .WithMany(U => U.MisComentarios)
                 .HasForeignKey(C => C.UsuarioID)
-                 .OnDelete(DeleteBehavior.Restrict);
+                 .OnDelete(DeleteBehavior.Cascade);
 
             // Reacciones-Usuario
             modelBuilder.Entity<Reaccion>()

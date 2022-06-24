@@ -29,7 +29,7 @@ namespace tp1_grupo6.Front
             {
                 //cargo el nombre del usuario y este link label al presionarlo lleva a lperfil del mismo
                 var User = miRed.usuarioActual.Nombre + " " + miRed.usuarioActual.Apellido;
-                linkLabel1.Text += User.ToUpper();
+                linkLabel1.Text = User.ToUpper();
               
                 textBox1.Text = "";
                 textBox2.Text = "";
@@ -139,14 +139,27 @@ namespace tp1_grupo6.Front
         // Comentar Ultimo Post
         private void button10_Click(object sender, EventArgs e)
         {
+
+
+
+
+
             if (miRed.usuarioActual != null)
             {
                 var postsObtenidos = miRed.obtenerPosts();
                 string contenido;
                 contenido = textBox2.Text;
-                miRed.Comentar(contenido, postsObtenidos[^1].ID);                
+                if (miRed.Comentar(contenido, postsObtenidos[^1].ID)) { 
+                    MessageBox.Show("Se agrego con exito el comentario");
+                
+
+
                 Comentario1.Text = postsObtenidos[^1].Comentarios.Last().Contenido.ToString();
                 refreshVista();
+                }
+                else {
+                    MessageBox.Show("No se pudo agregar el comentario");
+                }
             }
         }
 
@@ -161,11 +174,18 @@ namespace tp1_grupo6.Front
             if (miRed.usuarioActual != null)
             {
                 var postsObtenidos = miRed.obtenerPosts();
-                miRed.EliminarPost(postsObtenidos[^1].ID);
-                refreshVista();
+                if (miRed.EliminarPost(postsObtenidos[^1].ID))
+                {
+                    MessageBox.Show("Se Elimino con exito el Post");
+
+                    refreshVista();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el post");
+                }
             }
         }
-
         // Comentar Segundo Post
         private void button15_Click(object sender, EventArgs e)
         {
