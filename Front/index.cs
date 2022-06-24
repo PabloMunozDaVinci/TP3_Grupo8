@@ -234,5 +234,13 @@ namespace tp1_grupo6.Front
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form amigos = new Amigos(this.miRed);
+            this.Hide();
+            amigos.ShowDialog();
+            this.Show();
+        }
     }
 }

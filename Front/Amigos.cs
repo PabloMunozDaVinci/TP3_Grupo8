@@ -5,13 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using tp1_grupo6.Logica;
 
 namespace tp1_grupo6.Front
 {
     public partial class Amigos : Form
     {
-        public Amigos()
+        private RedSocial miRed;
+        public Amigos(RedSocial miRed)
         {
+            this.miRed = miRed;
             InitializeComponent();
         }
 
@@ -92,7 +95,14 @@ namespace tp1_grupo6.Front
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (miRed.AgregarAmigo(textBox1.Text))
+{
+                MessageBox.Show("Se agrego con exito el amigo");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo agregar al amigo");
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
