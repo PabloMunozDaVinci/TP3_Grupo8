@@ -76,6 +76,12 @@ namespace tp1_grupo6.Front
 
         }
 
- 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form index = new Index(miRed);
+            this.Hide();
+            index.ShowDialog();
+            this.Show();
+        }
     }
 }

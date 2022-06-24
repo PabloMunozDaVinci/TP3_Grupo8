@@ -19,10 +19,14 @@ namespace tp1_grupo6.Front
             this.miRed = miRed;
 
             InitializeComponent();
+            var User = miRed.usuarioActual.Nombre + " " + miRed.usuarioActual.Apellido;
+           
+            label7.Text = User.ToUpper();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Dispose();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -54,6 +58,32 @@ namespace tp1_grupo6.Front
             login.ShowDialog();
             this.Show();
             Dispose();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form index = new Index(miRed);
+            this.Hide();
+            index.ShowDialog();
+            this.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form amigos = new Amigos(miRed);
+            this.Hide();
+            amigos.ShowDialog();
+            this.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

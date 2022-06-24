@@ -14,6 +14,8 @@ namespace tp1_grupo6.Front
         private RedSocial miRed;
         public Amigos(RedSocial miRed)
         {
+            var User = miRed.usuarioActual.Nombre + " " + miRed.usuarioActual.Apellido;
+            label3.Text= User.ToUpper();
             this.miRed = miRed;
             InitializeComponent();
         }
@@ -70,7 +72,10 @@ namespace tp1_grupo6.Front
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Form index = new Index(this.miRed);
+            this.Hide();
+            index.ShowDialog();
+            this.Show();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -152,12 +157,16 @@ namespace tp1_grupo6.Front
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            Form perfil = new Perfil(this.miRed);
+            this.Hide();
+            perfil.ShowDialog();
+            this.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
+            this.Dispose();
         }
     }
 }

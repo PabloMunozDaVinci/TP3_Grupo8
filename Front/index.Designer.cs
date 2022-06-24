@@ -84,8 +84,8 @@ namespace tp1_grupo6.Front
             this.panel6 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -559,13 +559,19 @@ namespace tp1_grupo6.Front
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button1);
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
+            // 
+            // linkLabel1
+            // 
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pictureBox3
             // 
@@ -575,16 +581,6 @@ namespace tp1_grupo6.Front
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.ForeColor = System.Drawing.Color.AliceBlue;
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -604,6 +600,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button4, "button4");
             this.button4.Name = "button4";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -647,6 +644,7 @@ namespace tp1_grupo6.Front
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -659,7 +657,6 @@ namespace tp1_grupo6.Front
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private PictureBox pictureBox2;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
@@ -719,5 +716,6 @@ namespace tp1_grupo6.Front
         private Button button32;
         private Button button34;
         private Button button35;
+        private LinkLabel linkLabel1;
     }
 }

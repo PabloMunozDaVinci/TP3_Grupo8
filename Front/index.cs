@@ -27,6 +27,10 @@ namespace tp1_grupo6.Front
             var postsObtenidos = miRed.obtenerPosts();
             if (postsObtenidos != null)
             {
+                //cargo el nombre del usuario y este link label al presionarlo lleva a lperfil del mismo
+                var User = miRed.usuarioActual.Nombre + " " + miRed.usuarioActual.Apellido;
+                linkLabel1.Text += User.ToUpper();
+              
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox13.Text = "";
@@ -62,7 +66,7 @@ namespace tp1_grupo6.Front
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Dispose();
+            this.Dispose();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -435,6 +439,22 @@ namespace tp1_grupo6.Front
             this.Hide();
             amigos.ShowDialog();
             this.Show();
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+    
+
+            Form perfil = new Perfil(miRed);
+            this.Hide();
+            perfil.ShowDialog();
+            this.Show();
+           
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
 
         }
     }
