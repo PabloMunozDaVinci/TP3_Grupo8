@@ -14,10 +14,12 @@ namespace tp1_grupo6.Front
         private RedSocial miRed;
         public Amigos(RedSocial miRed)
         {
+            this.miRed = miRed;
+            InitializeComponent();
             var User = miRed.usuarioActual.Nombre + " " + miRed.usuarioActual.Apellido;
             label3.Text= User.ToUpper();
             this.miRed = miRed;
-            InitializeComponent();
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -167,6 +169,11 @@ namespace tp1_grupo6.Front
         {
             
             this.Dispose();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
