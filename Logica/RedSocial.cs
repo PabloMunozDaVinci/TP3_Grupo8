@@ -13,6 +13,7 @@ namespace tp1_grupo6.Logica
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
         private Context context;
+        DateTime now = DateTime.Now;
         public Usuario usuarioActual { get; set; }
         public RedSocial()
         {
@@ -344,6 +345,7 @@ namespace tp1_grupo6.Logica
                 {
                     foreach(Comentario c in p.Comentarios)
                     {
+
                         context.Comentarios.Remove(c);
                     }
                     context.Posts.Remove(p);
@@ -357,86 +359,78 @@ namespace tp1_grupo6.Logica
             return salida;
         }
 
-        /* no funciona
-        public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
+
+        public bool EliminarComentario(int cID)
         {
-            foreach (Post post in posts)
+            bool salida = false;
+            foreach (Comentario c in context.Comentarios)
+            
+                if (c.ID == cID)
+                {
+                   
+                    context.Comentarios.Remove(c);
+                    salida = true;
+                }
+           
+            if (salida)
             {
+                context.SaveChanges();
+            }
+            return salida;
+        }
+        public bool ModificarPost(int pID, string pContenido)
+        {
+            bool salida = false;
+            foreach (Post post in context.Posts)
+            
                 if (post.ID == pID)
                 {
-                    //post.Usuario = pUsuario;
+                 
                     post.Contenido = pContenido;
-                    post.Comentarios = pComentarios;
-                    post.Reacciones = pReacciones;
-                    post.Tags = pTags;
-                    //post.Fecha = pFecha;
+                
+                    post.Fecha = now;
+                    context.Update(post);
+                    
 
+                    salida = true;
                 }
-            }
+                if (salida)
+                    context.SaveChanges();
+                return salida;
+            
         }
-
-        // no hecho
-       
-
-        // no funciona
-       
-
-        // no funciona
-        public void ModificarComentario(Post p, Comentario c)
+        public bool ModificarComentario(int cID,string cContenido)
         {
-            if (posts.Count > 0)
-            {
-                bool encontre = false;
-                //registro el ID del post a guardar
-                int id = 0;
-                id = p.ID;
-                foreach (Post postAux in posts)
-                {
-                    if (postAux.ID == id)
-                    {
-                        encontre = true;
-                        //remuevo el ultimo comentario dentro del pool de comentarios del usuario actual
-                        //usuarioActual.MisComentarios.Remove(usuarioActual.MisComentarios.Last());
-                        //remuevo el ultimo Post dentro del pool de Posts 
-                        //postAux.Comentarios.Remove(postAux.Comentarios.Last());
-                        //al usuario actual le agrego a su lista el comentario que realizó
-                        postAux.Comentarios.Add(c);
-                    }
-                }
-            }
-        }
-        public void QuitarComentario(Post p, Comentario c)
-        {
-            {
-                if (posts.Count > 0)
+            bool salida = false;
+            foreach (Comentario c in context.Comentarios)
+
+                if (c.ID == cID)
                 {
 
-                    bool encontre = false;
+                    c.Contenido = cContenido;
+                    c.Fecha = now;
+                    context.Update(c);
 
 
-                    //registro el ID del post a guardar
-                    int id = 0;
-
-                    id = p.ID;
-
-
-
-                    foreach (Post postAux in posts)
-                    {
-
-                        if (postAux.ID == id)
-                        {
-                            encontre = true;
-
-
-                            //remuevo el ultimo Post dentro del pool de Posts 
-                            // postAux.Comentarios.Remove(postAux.Comentarios.Last());
-                        }
-
-                    }
+                    salida = true;
                 }
-            }
-        }*/
+            if (salida)
+                context.SaveChanges();
+            return salida;
+        }
+
+        //public string obtenerPostContenido(string Contenido)
+        //{
+
+        //    //string salida = null;
+        //    //var query = from Posts in context.Posts
+        //    //            where ( Post.Contenido=>DbFunctions.Like
+        //    //           select Post;
+
+
+
+        //    //return salida;
+        //}
 
         public List<Post> obtenerPosts()
         {

@@ -34,6 +34,7 @@ namespace tp1_grupo6.Front
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.button34 = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.Comentario3 = new System.Windows.Forms.TextBox();
             this.post3 = new System.Windows.Forms.TextBox();
@@ -41,10 +42,10 @@ namespace tp1_grupo6.Front
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.button35 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.Comentario4 = new System.Windows.Forms.TextBox();
             this.post4 = new System.Windows.Forms.TextBox();
@@ -52,10 +53,10 @@ namespace tp1_grupo6.Front
             this.button21 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button33 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.Comentario2 = new System.Windows.Forms.TextBox();
             this.post2 = new System.Windows.Forms.TextBox();
@@ -63,10 +64,10 @@ namespace tp1_grupo6.Front
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button32 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.Comentario1 = new System.Windows.Forms.TextBox();
             this.post1 = new System.Windows.Forms.TextBox();
@@ -74,13 +75,11 @@ namespace tp1_grupo6.Front
             this.button7 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.button20 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -130,6 +129,7 @@ namespace tp1_grupo6.Front
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.button34);
             this.panel12.Controls.Add(this.textBox13);
             this.panel12.Controls.Add(this.Comentario3);
             this.panel12.Controls.Add(this.post3);
@@ -137,10 +137,19 @@ namespace tp1_grupo6.Front
             this.panel12.Controls.Add(this.button27);
             this.panel12.Controls.Add(this.button28);
             this.panel12.Controls.Add(this.button29);
-            this.panel12.Controls.Add(this.button30);
             this.panel12.Controls.Add(this.button31);
             resources.ApplyResources(this.panel12, "panel12");
             this.panel12.Name = "panel12";
+            // 
+            // button34
+            // 
+            this.button34.BackColor = System.Drawing.Color.Gray;
+            this.button34.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button34.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button34, "button34");
+            this.button34.Name = "button34";
+            this.button34.UseVisualStyleBackColor = false;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
             // 
             // textBox13
             // 
@@ -165,6 +174,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button26, "button26");
             this.button26.Name = "button26";
             this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // button27
             // 
@@ -195,15 +205,6 @@ namespace tp1_grupo6.Front
             this.button29.Name = "button29";
             this.button29.UseVisualStyleBackColor = false;
             // 
-            // button30
-            // 
-            this.button30.BackColor = System.Drawing.Color.Gray;
-            this.button30.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button30.ForeColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button30, "button30");
-            this.button30.Name = "button30";
-            this.button30.UseVisualStyleBackColor = false;
-            // 
             // button31
             // 
             this.button31.BackColor = System.Drawing.Color.Gray;
@@ -212,6 +213,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button31, "button31");
             this.button31.Name = "button31";
             this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // panel9
             // 
@@ -222,6 +224,7 @@ namespace tp1_grupo6.Front
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.button35);
             this.panel10.Controls.Add(this.textBox9);
             this.panel10.Controls.Add(this.Comentario4);
             this.panel10.Controls.Add(this.post4);
@@ -229,10 +232,19 @@ namespace tp1_grupo6.Front
             this.panel10.Controls.Add(this.button21);
             this.panel10.Controls.Add(this.button22);
             this.panel10.Controls.Add(this.button23);
-            this.panel10.Controls.Add(this.button24);
             this.panel10.Controls.Add(this.button25);
             resources.ApplyResources(this.panel10, "panel10");
             this.panel10.Name = "panel10";
+            // 
+            // button35
+            // 
+            this.button35.BackColor = System.Drawing.Color.Gray;
+            this.button35.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button35.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button35, "button35");
+            this.button35.Name = "button35";
+            this.button35.UseVisualStyleBackColor = false;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // textBox9
             // 
@@ -257,6 +269,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button19, "button19");
             this.button19.Name = "button19";
             this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button21
             // 
@@ -287,15 +300,6 @@ namespace tp1_grupo6.Front
             this.button23.Name = "button23";
             this.button23.UseVisualStyleBackColor = false;
             // 
-            // button24
-            // 
-            this.button24.BackColor = System.Drawing.Color.Gray;
-            this.button24.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button24.ForeColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button24, "button24");
-            this.button24.Name = "button24";
-            this.button24.UseVisualStyleBackColor = false;
-            // 
             // button25
             // 
             this.button25.BackColor = System.Drawing.Color.Gray;
@@ -304,6 +308,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button25, "button25");
             this.button25.Name = "button25";
             this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // panel3
             // 
@@ -314,6 +319,7 @@ namespace tp1_grupo6.Front
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.button33);
             this.panel4.Controls.Add(this.textBox6);
             this.panel4.Controls.Add(this.Comentario2);
             this.panel4.Controls.Add(this.post2);
@@ -321,15 +327,25 @@ namespace tp1_grupo6.Front
             this.panel4.Controls.Add(this.button14);
             this.panel4.Controls.Add(this.button15);
             this.panel4.Controls.Add(this.button16);
-            this.panel4.Controls.Add(this.button17);
             this.panel4.Controls.Add(this.button18);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
+            // 
+            // button33
+            // 
+            this.button33.BackColor = System.Drawing.Color.Gray;
+            this.button33.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button33.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button33, "button33");
+            this.button33.Name = "button33";
+            this.button33.UseVisualStyleBackColor = false;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // textBox6
             // 
             resources.ApplyResources(this.textBox6, "textBox6");
             this.textBox6.Name = "textBox6";
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // Comentario2
             // 
@@ -349,6 +365,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button9, "button9");
             this.button9.Name = "button9";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button14
             // 
@@ -379,15 +396,6 @@ namespace tp1_grupo6.Front
             this.button16.Name = "button16";
             this.button16.UseVisualStyleBackColor = false;
             // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.Gray;
-            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button17.ForeColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button17, "button17");
-            this.button17.Name = "button17";
-            this.button17.UseVisualStyleBackColor = false;
-            // 
             // button18
             // 
             this.button18.BackColor = System.Drawing.Color.Gray;
@@ -396,6 +404,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button18, "button18");
             this.button18.Name = "button18";
             this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // panel7
             // 
@@ -406,6 +415,7 @@ namespace tp1_grupo6.Front
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.button32);
             this.panel8.Controls.Add(this.textBox2);
             this.panel8.Controls.Add(this.Comentario1);
             this.panel8.Controls.Add(this.post1);
@@ -413,11 +423,20 @@ namespace tp1_grupo6.Front
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.button10);
             this.panel8.Controls.Add(this.button11);
-            this.panel8.Controls.Add(this.button12);
             this.panel8.Controls.Add(this.button13);
             resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.Gray;
+            this.button32.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button32.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button32, "button32");
+            this.button32.Name = "button32";
+            this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // textBox2
             // 
@@ -443,6 +462,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button7
             // 
@@ -473,15 +493,6 @@ namespace tp1_grupo6.Front
             this.button11.Name = "button11";
             this.button11.UseVisualStyleBackColor = false;
             // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.Gray;
-            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button12.ForeColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button12, "button12");
-            this.button12.Name = "button12";
-            this.button12.UseVisualStyleBackColor = false;
-            // 
             // button13
             // 
             this.button13.BackColor = System.Drawing.Color.Gray;
@@ -490,6 +501,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button13, "button13");
             this.button13.Name = "button13";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // textBox10
             // 
@@ -504,12 +516,12 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button20, "button20");
             this.button20.Name = "button20";
             this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Lavender;
             this.panel5.Controls.Add(this.textBox3);
-            this.panel5.Controls.Add(this.button8);
             this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.button2);
@@ -520,15 +532,6 @@ namespace tp1_grupo6.Front
             // 
             resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Gray;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.ForeColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
@@ -712,5 +715,9 @@ namespace tp1_grupo6.Front
         private Button button13;
         private TextBox textBox10;
         private Button button20;
+        private Button button33;
+        private Button button32;
+        private Button button34;
+        private Button button35;
     }
 }

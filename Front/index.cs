@@ -29,6 +29,9 @@ namespace tp1_grupo6.Front
             {
                 textBox1.Text = "";
                 textBox2.Text = "";
+                textBox13.Text = "";
+                textBox9.Text = "";
+                textBox6.Text = "";
                 if (post1 != null || post2 != null || post3 != null || post4 != null
                 || Comentario1 != null || Comentario2 != null || Comentario3 != null || Comentario4 != null)
                 {
@@ -36,10 +39,13 @@ namespace tp1_grupo6.Front
                     post2.Text = postsObtenidos[^2].Contenido.ToString();
                     post3.Text = postsObtenidos[^3].Contenido.ToString();
                     post4.Text = postsObtenidos[^4].Contenido.ToString();
+                  
+                    /*
                     Comentario1.Text = postsObtenidos[^1].Comentarios.Last().Contenido.ToString();
                     Comentario2.Text = postsObtenidos[^2].Comentarios.Last().Contenido.ToString();
                     Comentario3.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
                     Comentario4.Text = postsObtenidos[^4].Comentarios.Last().Contenido.ToString();
+                   */
                 }
             }
         }
@@ -96,7 +102,7 @@ namespace tp1_grupo6.Front
         {
 
         }
-
+        // Realizar Post " que estas pensando " 
         private void button2_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -145,7 +151,7 @@ namespace tp1_grupo6.Front
 
         }
 
-        // Eliminar Ultimo Post
+        // Eliminar Ultimo Post agregado
         private void button7_Click_1(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -209,7 +215,7 @@ namespace tp1_grupo6.Front
             }
         }
 
-        // Eliminar Segundo Post
+        // Eliminar tercer Post
         private void button27_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -219,7 +225,7 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
         }
-
+        //Eliminar cuarto Post
         private void button21_Click(object sender, EventArgs e)
         {
             if (miRed.usuarioActual != null)
@@ -229,6 +235,194 @@ namespace tp1_grupo6.Front
                 refreshVista();
             }
         }
+
+        //Eliminar Ultimo comentario agregado
+        private void button32_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^1].ID);
+                refreshVista();
+            }
+        }
+        //Eliminar segundo comentario
+        private void button33_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^2].ID);
+                refreshVista();
+            }
+    }
+        //Eliminar tercer comentario
+        private void button34_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^3].ID);
+                refreshVista();
+            }
+    }
+        //Eliminar cuarto comentario
+        private void button35_Click(object sender, EventArgs e)
+        {
+            if (miRed.usuarioActual != null)
+            {
+                var comentariosObtenidos = miRed.obtenerComentarios();
+                miRed.EliminarComentario(comentariosObtenidos[^4].ID);
+                refreshVista();
+            }
+        }
+
+
+
+       
+        //Modificar Post 1
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+            String contenido=null;
+            contenido = textBox2.Text;
+
+            var postObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(postObtenidos[^1].ID,contenido);
+
+            post1.Text = postObtenidos[^1].Contenido;
+            refreshVista();
+        }
+
+
+
+        //Modificar Post 2
+        private void button18_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox6.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^2].ID, contenido);
+
+            post2.Text = postObtenidos[^2].Contenido;
+
+
+            refreshVista();
+        }
+
+        //Modificar Post 3
+        private void button31_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox13.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^3].ID, contenido);
+
+            post3.Text = postObtenidos[^3].Contenido;
+
+
+            refreshVista();
+        }
+
+        //Modificar Post 4
+        private void button25_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox9.Text;
+
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^4].ID, contenido);
+
+            post4.Text = postObtenidos[^4].Contenido;
+
+
+            refreshVista();
+        }
+        //modificar Comentario 1
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+                
+            String contenido = null;
+            contenido = textBox2.Text;
+
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^1].ID, contenido);
+
+            Comentario1.Text = comentariosObtenidos[^1].Contenido;
+
+
+            refreshVista();
+        }
+
+        //modificar comentario 2
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+            String contenido = null;
+            contenido = textBox6.Text;
+
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^2].ID, contenido);
+
+            Comentario2.Text = comentariosObtenidos[^2].Contenido;
+
+
+            refreshVista();
+
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        //modificar comentario 3
+        private void button26_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox13.Text;
+
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^3].ID, contenido);
+
+            Comentario3.Text = comentariosObtenidos[^3].Contenido;
+
+
+            refreshVista();
+
+        }
+        //modificar comentario 4
+        private void button19_Click(object sender, EventArgs e)
+        {
+
+
+            String contenido = null;
+            contenido = textBox9.Text;
+
+            var comentariosObtenidos = miRed.obtenerComentarios();
+            miRed.ModificarComentario(comentariosObtenidos[^4].ID, contenido);
+
+            Comentario4.Text = comentariosObtenidos[^4].Contenido;
+
+
+            refreshVista();
+
+        }
+        //Boton buscar post
+        private void button20_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox10.Text;
+
+
+            
+
+
+
+
 
         private void panel8_Paint(object sender, PaintEventArgs e)
         {
@@ -241,6 +435,7 @@ namespace tp1_grupo6.Front
             this.Hide();
             amigos.ShowDialog();
             this.Show();
+
         }
     }
 }
