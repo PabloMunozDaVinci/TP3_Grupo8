@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxDNI = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxApellido = new System.Windows.Forms.TextBox();
@@ -45,16 +43,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(80, 187);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "DNI";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -67,16 +55,9 @@
             this.label2.Text = "REGISTRARSE";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBoxDNI
-            // 
-            this.textBoxDNI.Location = new System.Drawing.Point(163, 184);
-            this.textBoxDNI.Name = "textBoxDNI";
-            this.textBoxDNI.Size = new System.Drawing.Size(181, 23);
-            this.textBoxDNI.TabIndex = 2;
-            // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(163, 234);
+            this.textBoxNombre.Location = new System.Drawing.Point(176, 207);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(181, 23);
             this.textBoxNombre.TabIndex = 4;
@@ -85,7 +66,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(38, 237);
+            this.label3.Location = new System.Drawing.Point(51, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 3;
@@ -93,7 +74,7 @@
             // 
             // textBoxApellido
             // 
-            this.textBoxApellido.Location = new System.Drawing.Point(163, 283);
+            this.textBoxApellido.Location = new System.Drawing.Point(176, 256);
             this.textBoxApellido.Name = "textBoxApellido";
             this.textBoxApellido.Size = new System.Drawing.Size(181, 23);
             this.textBoxApellido.TabIndex = 6;
@@ -102,7 +83,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(29, 286);
+            this.label4.Location = new System.Drawing.Point(42, 259);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 20);
             this.label4.TabIndex = 5;
@@ -110,7 +91,7 @@
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(163, 335);
+            this.textBoxMail.Location = new System.Drawing.Point(176, 308);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(181, 23);
             this.textBoxMail.TabIndex = 8;
@@ -119,7 +100,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(70, 338);
+            this.label5.Location = new System.Drawing.Point(83, 311);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 20);
             this.label5.TabIndex = 7;
@@ -149,7 +130,7 @@
             // 
             // textBoxContraseniaRepetida
             // 
-            this.textBoxContraseniaRepetida.Location = new System.Drawing.Point(163, 433);
+            this.textBoxContraseniaRepetida.Location = new System.Drawing.Point(176, 406);
             this.textBoxContraseniaRepetida.Name = "textBoxContraseniaRepetida";
             this.textBoxContraseniaRepetida.PasswordChar = '*';
             this.textBoxContraseniaRepetida.Size = new System.Drawing.Size(181, 23);
@@ -159,7 +140,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(3, 436);
+            this.label6.Location = new System.Drawing.Point(16, 409);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 20);
             this.label6.TabIndex = 13;
@@ -167,7 +148,7 @@
             // 
             // textBoxContrasenia
             // 
-            this.textBoxContrasenia.Location = new System.Drawing.Point(163, 388);
+            this.textBoxContrasenia.Location = new System.Drawing.Point(176, 361);
             this.textBoxContrasenia.Name = "textBoxContrasenia";
             this.textBoxContrasenia.PasswordChar = '*';
             this.textBoxContrasenia.Size = new System.Drawing.Size(181, 23);
@@ -177,7 +158,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(65, 391);
+            this.label7.Location = new System.Drawing.Point(78, 364);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 20);
             this.label7.TabIndex = 11;
@@ -202,9 +183,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxDNI);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Registrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -216,10 +195,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxDNI;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxApellido;

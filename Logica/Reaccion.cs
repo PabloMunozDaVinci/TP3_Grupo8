@@ -8,31 +8,20 @@ namespace tp1_grupo6.Logica
     {
         public int ID { get; set; }
         public char Tipo { get; set; }
-        public int postID { get; set; }
+        public int PostID { get; set; }
         public int UsuarioID { get; set; }
         public Post Post { get; set; }
         public Usuario Usuario { get; set; }
 
-
+        //Constructor vacio para EF
         public Reaccion() { }
 
-
-
-        public Reaccion(int ID, char Tipo,int postID,int UsuarioID) {
+        public Reaccion(int ID, char Tipo,int PostID,int UsuarioID) {
            
             this.ID = ID;
             this.Tipo = Tipo;
-            this.postID = postID;
+            this.PostID = PostID;
             this.UsuarioID = UsuarioID;
-        
-        }
-
-        public Reaccion(int ID, char Tipo, Post Post, Usuario Usuario)
-        {
-            this.ID = ID;
-            this.Tipo = Tipo;
-            this.Post = Post;
-            this.Usuario = Usuario;
         }
     }
 }

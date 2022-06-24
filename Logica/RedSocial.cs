@@ -4,33 +4,64 @@ using System.Linq;
 using System.Text;
 using EasyEncryption;
 using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace tp1_grupo6.Logica
 {
     public class RedSocial
     {
-        private List<Usuario> usuarios;
-        private List<Post> posts;
-        private List<Tag> tags;
-        public Usuario usuarioActual { get; set; }
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
-        private DB_Management DB;
-
+        private Context context;
+        DateTime now = DateTime.Now;
+        public Usuario usuarioActual { get; set; }
         public RedSocial()
         {
-            usuarios = new List<Usuario>();
-            posts = new List<Post>();
-            tags = new List<Tag>();
             this.usuarioActual = usuarioActual;
             this.loginHistory = new Dictionary<string, int>();
-            DB = new DB_Management();
             inicializarAtributos();
         }
 
         private void inicializarAtributos()
         {
-            usuarios = DB.inicializarUsuarios();
+            try
+            {
+                // creo el contexto 
+                context = new Context();
+
+                context.Usuarios.Include(u => u.MisPosts)
+                   .Include(u => u.MisComentarios)
+                   .Include(u => u.MisReacciones)
+                   .Include(u => u.MisAmigos)
+                   .Include(u => u.AmigosMios)
+                   .Load();
+
+                context.Posts.Include(p => p.Usuario)
+                    .Include(p => p.Comentarios)
+                    .Include(p => p.Reacciones)
+                    .Include(p => p.Tags)
+                    .Load();
+
+                context.Comentarios.Include(c => c.Usuario)
+                    .Include(c => c.Post)
+                    .Load();
+
+                context.Tags.Include(t => t.TagPost)
+                    .Include(t => t.Posts)
+                    .Load();
+
+                context.Reacciones.Include(r => r.Usuario)
+                    .Include(r => r.Post)
+                    .Load();
+
+                //Guardo los cambios 
+                context.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private string Hashear(string contraseñaSinHashear)
@@ -72,93 +103,98 @@ namespace tp1_grupo6.Logica
             return DevolverUsuario(Mail).Bloqueado;
         }
 
-        //Falta
-        public void ModificarUsuario(int newID, string newNombre, string newApellido, string newMail, string newPassword)
+        // Modificar los datos del usuario logeado
+        public bool ModificarUsuario(string newNombre, string newApellido, string newMail, string newPassword)
         {
-
-            if (usuarioActual != null && usuarioActual.ID == newID)
+            try
             {
-
-
-                usuarioActual.Nombre = newNombre;
-                usuarioActual.Apellido = newApellido;
-                usuarioActual.Mail = newMail;
-                usuarioActual.Password = newPassword;
-
-
+                if(newNombre != "")
+                {
+                    newNombre = usuarioActual.Nombre = newNombre;
+                }
+                else
+                {
+                    newNombre = usuarioActual.Nombre;
+                }
+                if (newApellido != "")
+                {
+                    newApellido = usuarioActual.Apellido = newApellido;
+                }
+                else
+                {
+                    newApellido = usuarioActual.Apellido;
+                }
+                if (newMail != "")
+                {
+                    newMail = usuarioActual.Mail = newMail;
+                }
+                else
+                {
+                    newMail = usuarioActual.Mail;
+                }
+                if (newPassword != "")
+                {
+                    newPassword = usuarioActual.Password = newPassword;
+                }
+                else
+                {
+                    newPassword = usuarioActual.Password;
+                }
+                context.Usuarios.Update(usuarioActual);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
-        //no se si funciona
-        public void EliminarUsuario(Usuario u, string Mail)
+        // Elimina al usuario logueado
+        public bool EliminarUsuario()
         {
-            foreach (Usuario usuario in usuarios)
+            try
             {
-                if (usuario.Mail == Mail)
-                {
-                    usuarios.Remove(u);
-                }
+                bool salida = false;                 
+                context.Usuarios.Remove(usuarioActual);
+                context.SaveChanges();
+
+                return salida;                                    
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
         // Devuelve el Usuario correspondiente al Mail recibido.
-        private Usuario DevolverUsuario(string Mail)
+        public Usuario DevolverUsuario(string Mail)
         {
-            Usuario usuarioEncontrado = null;
-
-            for (int i = 0; i < usuarios.Count(); i++)
-            {
-                if (usuarios[i].Mail == Mail)
-                {
-                    usuarioEncontrado = usuarios[i];
-                }
-            }
-
-            /*if (usuarios.Count() > 0)
-            {
-                while (usuarios.Count() >= a || usuarioEncontrado == null)
-                {
-                    if (usuarios[a].Mail == Mail)
-                    {
-                        usuarioEncontrado = usuarios[a];
-                    }
-                    a++;
-                }
-            }*/
-
-            return usuarioEncontrado;
+            //Usuario usuarioEncontrado = null;
+            return context.Usuarios.Where(U => U.Mail == Mail).FirstOrDefault();
         }
 
-        public bool RegistrarUsuario(int DNI, string Nombre, string Apellido, string Mail, string Password, bool EsADMIN, bool Bloqueado)
+        // Se registra un nuevo usuario
+        public bool RegistrarUsuario(string Nombre, string Apellido, string Mail, string Password, bool EsAdmin, bool Bloqueado)
         {
-            if (!ExisteUsuario(Mail))
+            try
             {
-    
-                    int idNuevoUsuario;
-                    idNuevoUsuario = DB.agregarUsuario(DNI, Nombre, Apellido, Mail, Password, EsADMIN, Bloqueado);
-                    if (idNuevoUsuario != -1)
-                    {
-                        //Ahora sí lo agrego en la lista
-                        Usuario nuevo = new Usuario(idNuevoUsuario, DNI, Nombre, Apellido, Mail, this.Hashear(Password), EsADMIN, Bloqueado);
-                        usuarios.Add(nuevo);
-                        return true;
-                    }
-                    else
-                    {
-                        //algo salió mal con la query porque no generó un id válido
-                        return false;
-                    }
-                
+                Usuario nuevo = new Usuario { Nombre = Nombre, Apellido = Apellido, Mail = Mail, Password = Password, EsAdmin = EsAdmin, Bloqueado = Bloqueado };
+                context.Usuarios.Add(nuevo);
+                context.SaveChanges();
+                return true;
             }
-            return false;
+            catch (Exception)
+            {
+                return false;
+            }            
         }
-
 
         // Se autentica al Usuario.
         public bool IniciarUsuario(string Mail, string Password)
         {
             bool ok = false;
-            Usuario usuario = this.DevolverUsuario(Mail);
+            Usuario usuario = DevolverUsuario(Mail);
             if (usuario.Password == Password)
             {
                 usuarioActual = usuario;
@@ -166,6 +202,7 @@ namespace tp1_grupo6.Logica
             }
             return ok;
         }
+
         // Se valida si el usuario existe y devuelve true o false
         public bool ExisteUsuario(string Mail)
         {
@@ -175,24 +212,12 @@ namespace tp1_grupo6.Logica
             }
             return false;
         }
-        // se obtiene el ID del usuario
-        public int obtenerUsuarioId(string Mail)
-        {
-            foreach (Usuario u in usuarios)
-            {
-                if (u.Mail == Mail)
-                {
-                    return u.ID;
-                }
-            }
-            return 0;
-        }
 
         // Bloquea/Desbloquea el Usuario que se corresponde con el DNI recibido.
         public bool bloquearDesbloquearUsuario(string Mail, bool Bloqueado)
         {
             bool todoOk = false;
-            foreach (Usuario u in usuarios)
+            foreach (Usuario u in context.Usuarios)
             {
                 if (u.Mail == Mail)
                 {
@@ -203,61 +228,42 @@ namespace tp1_grupo6.Logica
             return todoOk;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // funciona
-        public bool CerrarSesion(Usuario u)
+        // Cierra la sesion 
+        public bool CerrarSesion()
         {
             //Pregunto si existe usuario Actual
             if (usuarioActual != null)
             {
                 //seteo el usuario actual a null
                 usuarioActual = null;
+                context.Dispose();
             }
             return true;
         }
 
-
-
-
-
-
-
-
-
-
-
-
         // no se si funciona
-        public void AgregarAmigo(Usuario amigo)
+        public bool AgregarAmigo(string mailAmigo)
         {
-            if (usuarioActual != null)
+            bool salida = false;
+            foreach (Usuario a in context.Usuarios)
             {
-
-                usuarioActual.Amigos.Add(amigo);
-
+                if (a.Mail.Equals(mailAmigo))
+                {
+                    UsuarioAmigo am1 = new UsuarioAmigo(usuarioActual, a);
+                    UsuarioAmigo am2 = new UsuarioAmigo(a, usuarioActual);
+                    usuarioActual.MisAmigos.Add(am1);
+                    usuarioActual.AmigosMios.Add(am2);
+                    salida = true;
+                }                          
+            }
+            if (salida)
+            {
+                context.SaveChanges();
+                return salida;
             }
 
+            return salida;
         }
-
-
-
-
-
-
-
-
 
         // no funciona
         public void QuitarAmigo(Usuario exAmigo)
@@ -265,246 +271,192 @@ namespace tp1_grupo6.Logica
             if (usuarioActual != null)
             {
                 //usuarioActual.Amigos.Remove(amigo);
-                exAmigo.Amigos.Remove(usuarioActual);
+                //exAmigo.Amigos.Remove(usuarioActual);
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-        // no se si funciona
-        public void Postear(Post p, List<Tag> t)
+        // Metodo para agregar un nuevo Post
+        public bool Postear(int userID, String postContenido)
         {
-            bool encontre = false;
-
-            posts.Add(p);
-            usuarioActual.MisPosts.Add(p);
-            foreach (Tag tagP in t)
+            DateTime now = DateTime.Now;
+            try
             {
-                encontre = false;
+                Usuario usrAux = usuarioActual;
 
-                foreach (Tag tag in tags)
+                if (usrAux != null)
                 {
-                    if (tag == tagP)
+
+                    Post postAux = new Post { UsuarioID = usuarioActual.ID, Contenido = postContenido, Fecha = now };
+
+                    context.Posts.Add(postAux);
+                    usrAux.MisPosts.Add(postAux);
+                    context.Usuarios.Update(usrAux);
+
+                    context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        // Metodo para agregar un comentario
+        public bool Comentar(String comentarioContenido, int postID)
+        {
+            try
+            {
+                DateTime now = DateTime.Now;
+                Usuario usrAux = usuarioActual;
+
+                if (usrAux != null)
+                {
+
+                    Comentario comentarioAux = new Comentario { PostID= postID ,UsuarioID = usuarioActual.ID, Contenido = comentarioContenido, Fecha = now };
+
+                    context.Comentarios.Add(comentarioAux);
+                    usrAux.MisComentarios.Add(comentarioAux);
+
+
+                    context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        // Elimina un post, y todos sus comentarios
+        public bool EliminarPost(int pID)
+        {
+            bool salida = false; 
+            foreach (Post p in context.Posts)
+            {
+                if (p.ID == pID)
+                {
+                    foreach(Comentario c in p.Comentarios)
                     {
-                        encontre = true;
+
+                        context.Comentarios.Remove(c);
                     }
+                    context.Posts.Remove(p);
+                    salida = true;
                 }
-
-                if (encontre == false)
-                {
-                    tags.Add(tagP);
-                }
-
-                tagP.Posts.Add(p);
-                p.Tags.Add(tagP);
-
             }
+            if (salida)
+            {
+                context.SaveChanges();
+            }                
+            return salida;
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // no funciona
-        public void ModificarPost(int pID, Usuario pUsuario, string pContenido, List<Comentario> pComentarios, List<Reaccion> pReacciones, List<Tag> pTags, DateTime pFecha)
+        public bool EliminarComentario(int cID)
         {
-            foreach (Post post in posts)
+            bool salida = false;
+            foreach (Comentario c in context.Comentarios)
+            
+                if (c.ID == cID)
+                {
+                   
+                    context.Comentarios.Remove(c);
+                    salida = true;
+                }
+           
+            if (salida)
             {
+                context.SaveChanges();
+            }
+            return salida;
+        }
+        public bool ModificarPost(int pID, string pContenido)
+        {
+            bool salida = false;
+            foreach (Post post in context.Posts)
+            
                 if (post.ID == pID)
                 {
-                    //post.Usuario = pUsuario;
+                 
                     post.Contenido = pContenido;
-                    post.Comentarios = pComentarios;
-                    post.Reacciones = pReacciones;
-                    post.Tags = pTags;
-                    //post.Fecha = pFecha;
+                
+                    post.Fecha = now;
+                    context.Update(post);
+                    
 
+                    salida = true;
                 }
-            }
+                if (salida)
+                    context.SaveChanges();
+                return salida;
+            
         }
-
-
-
-
-
-
-
-
-
-
-        // no hecho
-        public void EliminarPost(Post p)
+        public bool ModificarComentario(int cID,string cContenido)
         {
+            bool salida = false;
+            foreach (Comentario c in context.Comentarios)
 
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // no funciona
-        public void Comentar(Post p, Comentario c)
-        {
-            //pregunto si el conteo de post es mayor a 0 para determinar si existen posts
-            if (posts.Count > 0)
-            {
-                bool encontre = false;
-                //registro el ID del post a guardar
-                int id = 0;
-                id = p.ID;
-                foreach (Post postAux in posts)
-                {
-                    if (postAux.ID == id)
-                    {
-                        encontre = true;
-                        //Agrego al Post actual el comentario
-                        postAux.Comentarios.Add(c);
-                        //al usuario actual le agrego a su lista el comentario que realizó
-                        usuarioActual.MisComentarios.Add(c);
-                        //si realiza mas comentarios deben tener ID  diferente
-                        //usuarioActual.MisComentarios.
-                    }
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // no funciona
-        public void ModificarComentario(Post p, Comentario c)
-        {
-            if (posts.Count > 0)
-            {
-                bool encontre = false;
-                //registro el ID del post a guardar
-                int id = 0;
-                id = p.ID;
-                foreach (Post postAux in posts)
-                {
-                    if (postAux.ID == id)
-                    {
-                        encontre = true;
-                        //remuevo el ultimo comentario dentro del pool de comentarios del usuario actual
-                        //usuarioActual.MisComentarios.Remove(usuarioActual.MisComentarios.Last());
-                        //remuevo el ultimo Post dentro del pool de Posts 
-                        //postAux.Comentarios.Remove(postAux.Comentarios.Last());
-                        //al usuario actual le agrego a su lista el comentario que realizó
-                        postAux.Comentarios.Add(c);
-                    }
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public void QuitarComentario(Post p, Comentario c)
-        {
-            {
-                if (posts.Count > 0)
+                if (c.ID == cID)
                 {
 
-                    bool encontre = false;
+                    c.Contenido = cContenido;
+                    c.Fecha = now;
+                    context.Update(c);
 
 
-                    //registro el ID del post a guardar
-                    int id = 0;
-
-                    id = p.ID;
-
-
-
-                    foreach (Post postAux in posts)
-                    {
-
-                        if (postAux.ID == id)
-                        {
-                            encontre = true;
-
-
-                            //remuevo el ultimo Post dentro del pool de Posts 
-                            // postAux.Comentarios.Remove(postAux.Comentarios.Last());
-                        }
-
-                    }
+                    salida = true;
                 }
-            }
+            if (salida)
+                context.SaveChanges();
+            return salida;
         }
 
+        //public string obtenerPostContenido(string Contenido)
+        //{
+
+        //    //string salida = null;
+        //    //var query = from Posts in context.Posts
+        //    //            where ( Post.Contenido=>DbFunctions.Like
+        //    //           select Post;
 
 
 
+        //    //return salida;
+        //}
 
+        public List<Post> obtenerPosts()
+        {
+            return  context.Posts.ToList();
+        }
 
+        public List<Comentario> obtenerComentarios()
+        {
+            return context.Comentarios.ToList();
 
+        }
 
+        public List<Reaccion> obtenerReacciones()
+        {
+            return context.Reacciones.ToList();
+        }
 
+        public List<Tag> obtenerTags()
+        {
+            return context.Tags.ToList();
+        }
 
-
-
-
-
+        public List<Usuario> obtenerUsuarios()
+        {
+            return context.Usuarios.ToList();
+        }
 
         public void Reaccionar(Post p, Reaccion r)
         {
@@ -540,6 +492,35 @@ namespace tp1_grupo6.Logica
         {
 
         }
+
+        // Metodo para eliminar usuarios siendo el usuario administrador
+        public bool EliminarUsuarioAdmin(string Nombre, string Apellido, string Mail)
+        {
+            try
+            {
+                bool salida = false;
+                foreach (Usuario u in context.Usuarios)
+                    if (u.Mail == Mail)
+                    {
+                        context.Usuarios.Remove(u);
+                        salida = true;
+                    }
+                if (salida)
+                    context.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        // Obtiene 1 usuario en cuestion
+        public Usuario obtenerUsuario(string nombre)
+        {
+            return context.Usuarios.Where(U => U.Nombre == nombre).FirstOrDefault();
+        }
+
 
     }
 }
