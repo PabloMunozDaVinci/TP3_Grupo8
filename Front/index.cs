@@ -416,7 +416,7 @@ namespace tp1_grupo6.Front
         {
             String contenido = null;
             contenido = textBox10.Text;
-
+        }
 
             
 
@@ -438,4 +438,5 @@ namespace tp1_grupo6.Front
 
         }
     }
-}
+ }
+
