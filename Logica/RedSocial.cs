@@ -13,7 +13,7 @@ namespace tp1_grupo6.Logica
         public IDictionary<string, int> loginHistory;
         private const int cantMaxIntentos = 3;
         private Context context;
-            DateTime now = DateTime.Now;
+        DateTime now = DateTime.Now;
         public Usuario usuarioActual { get; set; }
         public RedSocial()
         {
@@ -407,6 +407,18 @@ namespace tp1_grupo6.Logica
             return salida;
         }
 
+        //public string obtenerPostContenido(string Contenido)
+        //{
+
+        //    //string salida = null;
+        //    //var query = from Posts in context.Posts
+        //    //            where ( Post.Contenido=>DbFunctions.Like
+        //    //           select Post;
+
+
+
+        //    //return salida;
+        //}
 
         public List<Post> obtenerPosts()
         {

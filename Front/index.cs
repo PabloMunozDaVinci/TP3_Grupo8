@@ -39,7 +39,8 @@ namespace tp1_grupo6.Front
                     post2.Text = postsObtenidos[^2].Contenido.ToString();
                     post3.Text = postsObtenidos[^3].Contenido.ToString();
                     post4.Text = postsObtenidos[^4].Contenido.ToString();
-                   /*
+                  
+                    /*
                     Comentario1.Text = postsObtenidos[^1].Comentarios.Last().Contenido.ToString();
                     Comentario2.Text = postsObtenidos[^2].Comentarios.Last().Contenido.ToString();
                     Comentario3.Text = postsObtenidos[^3].Comentarios.Last().Contenido.ToString();
@@ -408,6 +409,18 @@ namespace tp1_grupo6.Front
 
 
             refreshVista();
+
+        }
+        //Boton buscar post
+        private void button20_Click(object sender, EventArgs e)
+        {
+            String contenido = null;
+            contenido = textBox10.Text;
+
+
+            
+
+
 
         }
     }

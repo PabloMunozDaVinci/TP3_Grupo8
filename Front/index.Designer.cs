@@ -515,6 +515,7 @@ namespace tp1_grupo6.Front
             resources.ApplyResources(this.button20, "button20");
             this.button20.Name = "button20";
             this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // panel5
             // 
