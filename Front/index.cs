@@ -12,11 +12,12 @@ namespace tp1_grupo6.Front
     public partial class Index : Form
     {
         private RedSocial miRed;
-
+        public static string postContenidoFiltrado="";
 
         public Index(RedSocial miRed)
         {
             this.miRed = miRed;
+          
             InitializeComponent();
             refreshVista();
         }
@@ -36,13 +37,14 @@ namespace tp1_grupo6.Front
                 textBox13.Text = "";
                 textBox9.Text = "";
                 textBox6.Text = "";
+                textBox4.Visible = false;
                 if (post1 != null || post2 != null || post3 != null || post4 != null
                 || Comentario1 != null || Comentario2 != null || Comentario3 != null || Comentario4 != null)
                 {
-                    post1.Text = postsObtenidos[^1].Contenido.FirstOrDefault().ToString();
-                    post2.Text = postsObtenidos[^2].Contenido.LastOrDefault().ToString();
-                    post3.Text = postsObtenidos[^3].Contenido.LastOrDefault().ToString();
-                    post4.Text = postsObtenidos[^4].Contenido.LastOrDefault().ToString();
+                    post1.Text = postsObtenidos[^1].Contenido.ToString();
+                    post2.Text = postsObtenidos[^2].Contenido.ToString();
+                    post3.Text = postsObtenidos[^3].Contenido.ToString();
+                    post4.Text = postsObtenidos[^4].Contenido.ToString();
 
 
                     try { 
@@ -373,8 +375,8 @@ namespace tp1_grupo6.Front
             String contenido=null;
             contenido = textBox2.Text;
 
-            var postObtenidos = miRed.obtenerComentarios();
-            miRed.ModificarComentario(postObtenidos[^1].ID,contenido);
+            var postObtenidos = miRed.obtenerPosts();
+            miRed.ModificarPost(postObtenidos[^1].ID,contenido);
 
             post1.Text = postObtenidos[^1].Contenido;
             refreshVista();
@@ -502,14 +504,19 @@ namespace tp1_grupo6.Front
         {
             String contenido = null;
             contenido = textBox10.Text;
-
             var postObtenido= miRed.obtenerPostPorContenido(contenido);
-
-
             textBox4.Text = postObtenido[^1].Contenido.ToString();
+            postContenidoFiltrado = textBox4.Text;
+
+
+
+            Form post = new Post(this.miRed, postContenidoFiltrado);
+            this.Dispose();
+            post.ShowDialog();
         }
 
             
+
 
 
 
@@ -542,6 +549,11 @@ namespace tp1_grupo6.Front
         }
 
         private void button11_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged_1(object sender, EventArgs e)
         {
 
         }
