@@ -173,16 +173,16 @@ namespace tp1_grupo6.Logica
                 new { ID = 3, Nombre = "usuario2", Apellido = "usuario2Apellido", Mail = "usuario2@gmail.com", Password = "usuario2", EsADM = false, Bloqueado = false });
 
             modelBuilder.Entity<Post>().HasData(
-                new { ID = 1, UsuarioID = 2, Contenido = 111, Fecha = now },
-                new { ID = 2, UsuarioID = 3, Contenido = 222, Fecha = now },
-                new { ID = 3, UsuarioID = 2, Contenido = 333, Fecha = now },
-                new { ID = 4, UsuarioID = 3, Contenido = 444, Fecha = now },
-                new { ID = 5, UsuarioID = 2, Contenido = 555, Fecha = now });
+                new { ID = 1, UsuarioID = 2, Contenido = "111", Fecha = now },
+                new { ID = 2, UsuarioID = 3, Contenido = "222", Fecha = now },
+                new { ID = 3, UsuarioID = 2, Contenido = "333", Fecha = now },
+                new { ID = 4, UsuarioID = 3, Contenido = "444", Fecha = now },
+                new { ID = 5, UsuarioID = 2, Contenido = "555", Fecha = now });
 
 
 
 
-        }
+                }
 
 
 
