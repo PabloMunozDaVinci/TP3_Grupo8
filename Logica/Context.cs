@@ -16,6 +16,7 @@ namespace tp1_grupo6.Logica
         public DbSet<Comentario> Comentarios { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public Context() { }
+        DateTime now = DateTime.Now;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -164,6 +165,21 @@ namespace tp1_grupo6.Logica
 
             //Ignoro, no agrego UsuarioManager a la base de datos , ni DB_Management
             modelBuilder.Ignore<RedSocial>();
+
+            //AGREGO ALGUNOS DATOS DE PRUEBA
+            modelBuilder.Entity<Usuario>().HasData(
+                new { ID = 1, Nombre = "administrador", Apellido = "adminApellido", Mail = "administrador@gmail.com", Password = "administrador", EsADM = true, Bloqueado = false },
+                new { ID = 2, Nombre = "usuario1", Apellido = "usuario1Apellido", Mail = "usuario1@gmail.com", Password = "usuario1", EsADM = false, Bloqueado = false },
+                new { ID = 3, Nombre = "usuario2", Apellido = "usuario2Apellido", Mail = "usuario2@gmail.com", Password = "usuario2", EsADM = false, Bloqueado = false });
+
+            modelBuilder.Entity<Post>().HasData(
+                new { ID = 1, UsuarioID = 2, Contenido = 111, Fecha = now },
+                new { ID = 2, UsuarioID = 3, Contenido = 222, Fecha = now },
+                new { ID = 3, UsuarioID = 2, Contenido = 333, Fecha = now },
+                new { ID = 4, UsuarioID = 3, Contenido = 444, Fecha = now },
+                new { ID = 5, UsuarioID = 2, Contenido = 555, Fecha = now });
+
+
 
 
         }
