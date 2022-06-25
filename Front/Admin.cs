@@ -21,6 +21,7 @@ namespace tp1_grupo6.Front
 
         private void refreshVista()
         {
+            dataGridView1.Rows.Clear();
             foreach (Usuario usuario in miRed.obtenerUsuarios())
             {
                 dataGridView1.Rows.Add(usuario.toArray());
@@ -46,18 +47,18 @@ namespace tp1_grupo6.Front
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*if (usuarios.modificarUsuario(int.Parse(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, checkBox1.Checked, checkBox2.Checked))
+            if(miRed.ModificarUsuarioAdmin(textBox1.Text, textBox2.Text, textBox3.Text, textBox3.Text))
             {
                 MessageBox.Show("Modificado con éxito");
                 refreshVista();
             }
             else
-                MessageBox.Show("No se pudo modificar el usuario"); */
+                MessageBox.Show("No se pudo modificar el usuario");
         }
 
         private void ButtonEliminarUsuario_Click(object sender, EventArgs e)
         {
-            if (miRed.EliminarUsuarioAdmin(textBox1.Text, textBox2.Text, textBox3.Text))
+            if (miRed.EliminarUsuarioAdmin( textBox3.Text))
             {
                 MessageBox.Show("Eliminado con éxito");
                 refreshVista();

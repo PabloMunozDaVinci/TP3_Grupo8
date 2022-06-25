@@ -70,6 +70,7 @@ namespace tp1_grupo6.Logica
             return true;
         }
 
+        //metodo para hashear la contraseña
         private string Hashear(string contraseñaSinHashear)
         {
             try
@@ -154,6 +155,49 @@ namespace tp1_grupo6.Logica
             {
                 return false;
             }
+        }
+
+        public bool ModificarUsuarioAdmin(string newNombre, string newApellido, string newMail, string EmailEncontrado)
+        {
+            bool salida = false;
+
+            foreach (Usuario u in context.Usuarios)
+            {
+                if (u.Mail.Equals(EmailEncontrado))
+                {
+                    if (newNombre != "")
+                    {
+                        u.Nombre = newNombre;
+                    }
+                    else
+                    {
+                        newNombre = u.Nombre;
+                    }
+                    if (newApellido != "")
+                    {
+                        u.Apellido = newApellido;
+                    }
+                    else
+                    {
+                        newApellido = u.Apellido;
+                    }
+                    if (newMail != "")
+                    {
+                        u.Mail = newMail;
+                    }
+                    else
+                    {
+                        newMail = u.Mail;
+                    }
+
+                    context.Usuarios.Update(u);
+                    
+                    salida = true;
+                }
+              
+            }
+            return salida;
+            context.SaveChanges();
         }
 
         // Elimina al usuario logueado
@@ -510,7 +554,7 @@ namespace tp1_grupo6.Logica
         }
 
         // Metodo para eliminar usuarios siendo el usuario administrador
-        public bool EliminarUsuarioAdmin(string Nombre, string Apellido, string Mail)
+        public bool EliminarUsuarioAdmin(string Mail)
         {
             try
             {
