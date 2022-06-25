@@ -153,7 +153,7 @@ namespace tp1_grupo6.Logica
                 post =>
                 {
                     post.Property(p => p.Contenido).HasColumnType("varchar(350)");
-                    post.Property(p => p.Fecha).HasColumnType("DateTime");
+                    post.Property(p => p.Fecha).HasColumnType("datetime");
                 });
 
             //Tag
