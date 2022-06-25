@@ -26,6 +26,7 @@ namespace tp1_grupo6.Front
 
         private void refreshVista()
         {
+            dataGridView1.Rows.Clear();
             foreach (UsuarioAmigo amigos in miRed.usuarioActual.MisAmigos)
             {
                 dataGridView1.Rows.Add(amigos.Amigo.toArray());               
