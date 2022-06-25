@@ -119,6 +119,7 @@ namespace tp1_grupo6.Front
             {
                 MessageBox.Show("No se pudo agregar al amigo");
             }
+            refreshVista();
         }
 
         private void button7_Click(object sender, EventArgs e)
