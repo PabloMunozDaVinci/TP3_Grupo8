@@ -402,11 +402,11 @@ namespace tp1_grupo6.Logica
             {
                 if (p.ID == pID)
                 {
-                    //foreach(Comentario c in p.Comentarios)
-                    //{
+                    foreach(Comentario c in p.Comentarios)
+                    {
 
-                    //    context.Comentarios.Remove(c);
-                    //}
+                        context.Comentarios.Remove(c);
+                    }
                     context.Posts.Remove(p);
                     salida = true;
                 }
@@ -422,15 +422,15 @@ namespace tp1_grupo6.Logica
         public bool EliminarComentario(int cID)
         {
             bool salida = false;
-            foreach (Comentario c in context.Comentarios)
+            foreach (Comentario c in context.Comentarios) { 
             
                 if (c.ID == cID)
                 {
-                   
+
                     context.Comentarios.Remove(c);
                     salida = true;
                 }
-           
+            }
             if (salida)
             {
                 context.SaveChanges();
